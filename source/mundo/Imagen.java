@@ -60,6 +60,8 @@ public class Imagen
     {
         ruta = pRuta;
         cargarImagen( ruta );
+        System.out.println(alto);
+        System.out.println(ancho);
     }
 
     // -----------------------------------------------------------------
@@ -154,7 +156,7 @@ public class Imagen
     }
 
     /**
-     * Convierte la imagen en negativo. <br>
+     * Convierte la imagen en negativo.
      * El negativo se calcula cambiando cada componente RGB, tomando el valor absoluto de restarle al componente 255.
      */
     public void convertirNegativo( )
@@ -194,9 +196,9 @@ public class Imagen
     }
 
     /**
-     * Binarizaci�n: Consiste en llevar cada pixel de una imagen a negro o blanco. Para ello se requiere un umbral: si el color del pixel est� <br>
-     * por encima o igual se lleva a blanco y si est� por debajo se lleva a negro.
-     * @param pUmbral Umbral para la binarizaci�n.
+     * Binarización: Consiste en llevar cada pixel de una imagen a negro o blanco. Para ello se requiere un umbral: si el color del pixel est� <br>
+     * por encima o igual se lleva a blanco y si está por debajo se lleva a negro.
+     * @param pUmbral Umbral para la binarización.
      */
     public void binarizarImagen( double pUmbral )
     {
@@ -263,16 +265,16 @@ public class Imagen
     /**
      * Convoluci�n: Opera la imagen con la matriz de convoluci�n dada por el usuario.
      * @param pConvolucion Matriz cuadrada de dimensi�n impar. pConvolucion != null.
-     * @param pDimension Dimensi�n de la matriz de convoluci�n. Dimension es v�lido para el contenido de la matriz.
+     * @param pDimension Dimensión de la matriz de convolución. Dimension es válido para el contenido de la matriz.
      */
     public void aplicarOperadorConvolucion( double[][] pConvolucion, int pDimension )
     {
         // Obtiene una copia de la imagen original, pero con un marco
-        // de p�xeles negros para operar f�cilmente las esquinas de la imagen
+        // de píxeles negros para operar fácilmente las esquinas de la imagen
         // con la matriz de convoluci�n
         Color copiaBorde[][] = copiarConBorde( pDimension / 2 );
 
-        // Calcula la suma de los factores de convoluci�n
+        // Calcula la suma de los factores de convolución
         double sumaConvolucion = 0;
         for( int i = 0; i < pDimension; i++ )
         {
@@ -282,7 +284,7 @@ public class Imagen
             }
         }
 
-        // Recorre la matriz de p�xeles para cambiar la imagen
+        // Recorre la matriz de píxeles para cambiar la imagen
         for( int i = 0; i < alto; i++ )
         {
             for( int j = 0; j < ancho; j++ )
@@ -432,7 +434,7 @@ public class Imagen
     private int menorDivisorMayorAUno( int pNumero )
     {
         boolean encontrado = false;
-        // Si el n�mero es par el divisor menor es 2
+        // Si el número es par el divisor menor es 2
         int divisor = 2;
 
         if( pNumero % divisor != 0 )
@@ -504,6 +506,27 @@ public class Imagen
             }
         }
         return copia;
+    }
+
+    /**
+     * Rota la matriz bitmap
+     * intercambia el ancho por alto y copia los valores de cada fila invertidos en cada columna
+     */
+    public void rotarImagen(){
+        Color [][] matrizRotada = new Color[ancho][alto];
+        for(int i = 0; i < alto; i ++){
+            Color[] vector = bitmap[i];
+            for(int j = 0; j < ancho; j++){
+                matrizRotada[j][i] = vector[ancho -1 - j];
+            }
+        }
+
+        bitmap = matrizRotada;
+
+        //Actualizar ancho y alto
+        int altoTemp = alto;
+        alto = ancho;
+        ancho = altoTemp;
     }
 
     // -----------------------------------------------------------------

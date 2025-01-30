@@ -57,9 +57,9 @@ public class PanelBotones extends JPanel implements ActionListener
     public final static String CONVOLUCION = "Convolución";
 
     /**
-     * Extensión 1.
+     * Rotar
      */
-    public final static String OPCION_1 = "Opción 1";
+    public final static String ROTAR = "Rotar";
 
     /**
      * Extensi�n 2.
@@ -71,12 +71,12 @@ public class PanelBotones extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Bot�n negativo.
+     * Botón negativo.
      */
     private JButton butNegativo;
 
     /**
-     * Bot�n reflejar.
+     * Botón reflejar.
      */
     private JButton butReflejar;
 
@@ -103,7 +103,7 @@ public class PanelBotones extends JPanel implements ActionListener
     /**
      * Botón extensión 1.
      */
-    private JButton butExtension1;
+    private JButton btnRotar;
 
     /**
      * Botón extensión 2.
@@ -161,9 +161,9 @@ public class PanelBotones extends JPanel implements ActionListener
         butConvolucion.setActionCommand( CONVOLUCION );
         butConvolucion.addActionListener( this );
 
-        butExtension1 = new JButton( OPCION_1 );
-        butExtension1.setActionCommand( OPCION_1 );
-        butExtension1.addActionListener( this );
+        btnRotar = new JButton(ROTAR);
+        btnRotar.setActionCommand(ROTAR);
+        btnRotar.addActionListener( this );
 
         butExtension2 = new JButton( OPCION_2 );
         butExtension2.setActionCommand( OPCION_2 );
@@ -176,7 +176,7 @@ public class PanelBotones extends JPanel implements ActionListener
         add( butPixelar );
         add( butEscalaGrises );
         add( butConvolucion );
-        add( butExtension1 );
+        add(btnRotar);
         add( butExtension2 );
     }
 
@@ -215,9 +215,9 @@ public class PanelBotones extends JPanel implements ActionListener
         {
             principal.presentarDialogoMatrizConvolucion( );
         }
-        else if( comando.equals( OPCION_1 ) )
+        else if( comando.equals(ROTAR) )
         {
-            principal.reqFuncOpcion1( );
+            principal.rotar();
         }
         else if( comando.equals( OPCION_2 ) )
         {

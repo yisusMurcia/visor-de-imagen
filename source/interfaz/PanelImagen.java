@@ -186,19 +186,14 @@ public class PanelImagen extends JPanel
         }
     }
 
-    // -----------------------------------------------------------------
-    // Puntos de Extensi�n
-    // -----------------------------------------------------------------
-
     /**
-     * Procesa la imagen con el m�todo de extensi�n 1.
+     * Rota la imagen 90 grados
      */
-    public void extension1( )
+    public void rotar( )
     {
         if( imagen != null )
         {
-            String respuesta = imagen.metodo1( );
-            JOptionPane.showMessageDialog( this, respuesta, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
+            imagen.rotarImagen();
             repaint( );
         }
     }
