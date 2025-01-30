@@ -1,6 +1,6 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -8,7 +8,7 @@
  * Autor: Equipo Cupi2 2017
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
  */
-package uniandes.cupi2.visorImagen.interfaz;
+package interfaz;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -16,7 +16,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * Panel de los botones del umbral de binarización.
+ * Panel de los botones del umbral de binarizaciï¿½n.
  */
 @SuppressWarnings("serial")
 public class PanelBotonesUmbral extends JPanel implements ActionListener
@@ -40,12 +40,12 @@ public class PanelBotonesUmbral extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Botón aceptar.
+     * Botï¿½n aceptar.
      */
     private JButton botonAceptar;
 
     /**
-     * Botón cancelar.
+     * Botï¿½n cancelar.
      */
     private JButton botonCancelar;
 
@@ -54,7 +54,7 @@ public class PanelBotonesUmbral extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Diálogo al que pertenece el panel.
+     * Diï¿½logo al que pertenece el panel.
      */
     private DialogoUmbralBinarizacion dialogo;
 
@@ -63,15 +63,15 @@ public class PanelBotonesUmbral extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Crea el panel de botones del umbral de binarización.
-     * @param pDialogo Diálogo al que pertenece este panel. pDialogo != null.
+     * Crea el panel de botones del umbral de binarizaciï¿½n.
+     * @param pDialogo Diï¿½logo al que pertenece este panel. pDialogo != null.
      */
     public PanelBotonesUmbral( DialogoUmbralBinarizacion pDialogo )
     {
-        // Guarda la referencia al diálogo
+        // Guarda la referencia al diï¿½logo
         dialogo = pDialogo;
 
-        // Establece el distribuidor gráfico
+        // Establece el distribuidor grï¿½fico
         setLayout( new GridLayout( 1, 2 ) );
 
         // Crea e inicializa los elementos de la interfaz
@@ -89,12 +89,12 @@ public class PanelBotonesUmbral extends JPanel implements ActionListener
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
      * Ejecuta las acciones de los elementos de la interfaz.
-     * @param pEvento Evento que generó la acción. pEvento != null.
+     * @param pEvento Evento que generï¿½ la acciï¿½n. pEvento != null.
      */
     public void actionPerformed( ActionEvent pEvento )
     {

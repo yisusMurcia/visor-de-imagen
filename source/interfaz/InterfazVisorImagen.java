@@ -4,7 +4,7 @@
  *Fecha: 1/29/2025
  */
 
-package uniandes.cupi2.visorImagen.interfaz;
+package interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -15,7 +15,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.UIManager;
 
 /**
  * Interfaz del visor de imagenes.
@@ -92,7 +91,7 @@ public class InterfazVisorImagen extends JFrame
         {
             File file = fc.getSelectedFile( );
             panelImagen.actualizarImagen( file.getAbsolutePath( ) );
-            panelCargarImagen.actualizarRuta( file.getAbsolutePath( ) );
+            panelCargarImagen.actualizarRuta( file.getName());
 
         }else{
             JOptionPane.showMessageDialog( this, "No se ha elegido ninguna imagen" );
@@ -159,7 +158,7 @@ public class InterfazVisorImagen extends JFrame
     }
 
     /**
-     * Presenta el diálogo de definición de la matriz de convolución.
+     * Presenta el dialogo de definición de la matriz de convolución.
      */
     public void presentarDialogoMatrizConvolucion( )
     {
@@ -194,29 +193,5 @@ public class InterfazVisorImagen extends JFrame
     public void reqFuncOpcion2( )
     {
         panelImagen.extension2( );
-    }
-
-    // -----------------------------------------------------------------
-    // Main
-    // -----------------------------------------------------------------
-
-    /**
-     * Ejecuta la aplicación.
-     * @param pArgs Parámetros de la ejecución. No son necesarios.
-     */
-    public static void main( String[] pArgs )
-    {
-        try
-        {
-            // Unifica la interfaz para Mac y para Windows.
-            UIManager.setLookAndFeel( UIManager.getCrossPlatformLookAndFeelClassName( ) );
-
-            InterfazVisorImagen i = new InterfazVisorImagen( );
-            i.setVisible( true );
-        }
-        catch( Exception e )
-        {
-            e.printStackTrace( );
-        }
     }
 }

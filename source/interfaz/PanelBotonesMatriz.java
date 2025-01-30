@@ -1,6 +1,6 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -8,7 +8,7 @@
  * Autor: Equipo Cupi2 2017
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
  */
-package uniandes.cupi2.visorImagen.interfaz;
+package interfaz;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -16,7 +16,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * Panel de los botones de la matriz de convolución.
+ * Panel de los botones de la matriz de convoluciï¿½n.
  */
 @SuppressWarnings("serial")
 public class PanelBotonesMatriz extends JPanel implements ActionListener
@@ -45,17 +45,17 @@ public class PanelBotonesMatriz extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Botón aceptar.
+     * Botï¿½n aceptar.
      */
     private JButton butAceptar;
 
     /**
-     * Botón limpiar.
+     * Botï¿½n limpiar.
      */
     private JButton butLimpiar;
 
     /**
-     * Botón cancelar.
+     * Botï¿½n cancelar.
      */
     private JButton butCancelar;
 
@@ -64,7 +64,7 @@ public class PanelBotonesMatriz extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Diálogo al que pertenece este panel.
+     * Diï¿½logo al que pertenece este panel.
      */
     private DialogoMatrizConvolucion dialogo;
 
@@ -73,15 +73,15 @@ public class PanelBotonesMatriz extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Crea el panel de botones de la matriz de convolución.
-     * @param pDialogo Diálogo al que pertenece este panel. pDialogo != null.
+     * Crea el panel de botones de la matriz de convoluciï¿½n.
+     * @param pDialogo Diï¿½logo al que pertenece este panel. pDialogo != null.
      */
     public PanelBotonesMatriz( DialogoMatrizConvolucion pDialogo )
     {
         // Guarda la referencia al padre
         dialogo = pDialogo;
 
-        // Establece el distribuidor gráfico
+        // Establece el distribuidor grï¿½fico
         setLayout( new GridLayout( 1, 3 ) );
 
         // Crea e inicializa los elementos de la interfaz
@@ -104,12 +104,12 @@ public class PanelBotonesMatriz extends JPanel implements ActionListener
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
      * Ejecuta las acciones de los elementos de la interfaz
-     * @param pEvento Evento que generó la acción. pEvento != null.
+     * @param pEvento Evento que genera la acciÃ³n. pEvento != null.
      */
     public void actionPerformed( ActionEvent pEvento )
     {

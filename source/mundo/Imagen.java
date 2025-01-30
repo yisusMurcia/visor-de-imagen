@@ -1,6 +1,6 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -8,7 +8,7 @@
  * Autor: Equipo Cupi2 2017
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
  */
-package uniandes.cupi2.visorImagen.mundo;
+package mundo;
 
 import java.awt.*;
 import java.awt.image.*;
@@ -50,9 +50,9 @@ public class Imagen
     // -----------------------------------------------------------------
 
     /**
-     * Crea una imagen a partir de la ruta del archivo donde esta la imagen original en BMP. La imagen numera los píxeles desde la esquina superior izquierda <br>
+     * Crea una imagen a partir de la ruta del archivo donde esta la imagen original en BMP. La imagen numera los pï¿½xeles desde la esquina superior izquierda <br>
      * de la imagen con (0,0). La coordenada X ve de 0 hasta el ancho-1 y la coordenada Y va de 0 a el alto-1 Si la imagen es de ancho mayor al ANCHO_MAXIMO <br>
-     * o con altura mayor a ALTO_MAXIMO, la imagen se recorta hasta los límites.
+     * o con altura mayor a ALTO_MAXIMO, la imagen se recorta hasta los lï¿½mites.
      * @param pRuta Ruta de la imagen. pRuta != null && pRuta != "".
      * @throws IOException Error al leer el archivo.
      */
@@ -63,14 +63,14 @@ public class Imagen
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
-     * Retorna el color de un pixel según su ubicación en la imagen.
+     * Retorna el color de un pixel segï¿½n su ubicaciï¿½n en la imagen.
      * @param pX Coordenada horizontal.
      * @param pY Coordenada vertical.
-     * @return El color del pixel de coordenadas (x,y) o null en caso de que las coordenadas sobrepasen los límites de la imagen.
+     * @return El color del pixel de coordenadas (x,y) o null en caso de que las coordenadas sobrepasen los lï¿½mites de la imagen.
      */
     public Color darColorPixel( int pX, int pY )
     {
@@ -194,9 +194,9 @@ public class Imagen
     }
 
     /**
-     * Binarización: Consiste en llevar cada pixel de una imagen a negro o blanco. Para ello se requiere un umbral: si el color del pixel está <br>
-     * por encima o igual se lleva a blanco y si está por debajo se lleva a negro.
-     * @param pUmbral Umbral para la binarización.
+     * Binarizaciï¿½n: Consiste en llevar cada pixel de una imagen a negro o blanco. Para ello se requiere un umbral: si el color del pixel estï¿½ <br>
+     * por encima o igual se lleva a blanco y si estï¿½ por debajo se lleva a negro.
+     * @param pUmbral Umbral para la binarizaciï¿½n.
      */
     public void binarizarImagen( double pUmbral )
     {
@@ -221,12 +221,12 @@ public class Imagen
     }
 
     /**
-     * Pixelamiento: Consiste en dividir la imagen en pequeñas regiones de pixeles y para cada una de esas regiones cambiar el color de los pixeles al <br>
-     * color promedio de dicha región. En este ejemplo, la región se dimensiona con los divisores más pequeños del ancho y el alto de la imagen.
+     * Pixelamiento: Consiste en dividir la imagen en pequeï¿½as regiones de pixeles y para cada una de esas regiones cambiar el color de los pixeles al <br>
+     * color promedio de dicha regiï¿½n. En este ejemplo, la regiï¿½n se dimensiona con los divisores mï¿½s pequeï¿½os del ancho y el alto de la imagen.
      */
     public void pixelarImagen( )
     {
-        // Los píxeles son divisores de las dimensiones de la imagen
+        // Los pï¿½xeles son divisores de las dimensiones de la imagen
         int anchoPixel = menorDivisorMayorAUno( ancho );
         int altoPixel = menorDivisorMayorAUno( alto );
 
@@ -235,9 +235,9 @@ public class Imagen
         {
             for( int y = 0; y < alto; y += altoPixel )
             {
-                // Obtiene el color medio de la región
+                // Obtiene el color medio de la regiï¿½n
                 Color colorPromedio = colorPromedio( x, y, x + anchoPixel - 1, y + altoPixel - 1 );
-                // Cambia el color de la región al promedio
+                // Cambia el color de la regiï¿½n al promedio
                 cambiarColorRegion( colorPromedio, x, y, x + anchoPixel - 1, y + altoPixel - 1 );
             }
         }
@@ -261,18 +261,18 @@ public class Imagen
     }
 
     /**
-     * Convolución: Opera la imagen con la matriz de convolución dada por el usuario.
-     * @param pConvolucion Matriz cuadrada de dimensión impar. pConvolucion != null.
-     * @param pDimension Dimensión de la matriz de convolución. Dimension es válido para el contenido de la matriz.
+     * Convoluciï¿½n: Opera la imagen con la matriz de convoluciï¿½n dada por el usuario.
+     * @param pConvolucion Matriz cuadrada de dimensiï¿½n impar. pConvolucion != null.
+     * @param pDimension Dimensiï¿½n de la matriz de convoluciï¿½n. Dimension es vï¿½lido para el contenido de la matriz.
      */
     public void aplicarOperadorConvolucion( double[][] pConvolucion, int pDimension )
     {
         // Obtiene una copia de la imagen original, pero con un marco
-        // de píxeles negros para operar fácilmente las esquinas de la imagen
-        // con la matriz de convolución
+        // de pï¿½xeles negros para operar fï¿½cilmente las esquinas de la imagen
+        // con la matriz de convoluciï¿½n
         Color copiaBorde[][] = copiarConBorde( pDimension / 2 );
 
-        // Calcula la suma de los factores de convolución
+        // Calcula la suma de los factores de convoluciï¿½n
         double sumaConvolucion = 0;
         for( int i = 0; i < pDimension; i++ )
         {
@@ -282,21 +282,21 @@ public class Imagen
             }
         }
 
-        // Recorre la matriz de píxeles para cambiar la imagen
+        // Recorre la matriz de pï¿½xeles para cambiar la imagen
         for( int i = 0; i < alto; i++ )
         {
             for( int j = 0; j < ancho; j++ )
             {
-                // Para cada píxel realiza el cálculo recorriendo la matriz de convolución
+                // Para cada pï¿½xel realiza el cï¿½lculo recorriendo la matriz de convoluciï¿½n
                 double sumaRed = 0;
                 double sumaGreen = 0;
                 double sumaBlue = 0;
 
-                // La división se hace en la mayoría de los casos (excepto en los bordes)
-                // Restando sobre la suma de los factores de convolución
+                // La divisiï¿½n se hace en la mayorï¿½a de los casos (excepto en los bordes)
+                // Restando sobre la suma de los factores de convoluciï¿½n
                 double divisor = sumaConvolucion;
 
-                // La suma se hace con los píxeles de la imagen original
+                // La suma se hace con los pï¿½xeles de la imagen original
                 for( int k = -pDimension / 2; k <= pDimension / 2; k++ )
                 {
                     for( int l = -pDimension / 2; l <= pDimension / 2; l++ )
@@ -305,7 +305,7 @@ public class Imagen
                         sumaGreen += pConvolucion[ k + pDimension / 2 ][ l + pDimension / 2 ] * copiaBorde[ i + k + pDimension / 2 ][ j + l + pDimension / 2 ].getGreen( );
                         sumaBlue += pConvolucion[ k + pDimension / 2 ][ l + pDimension / 2 ] * copiaBorde[ i + k + pDimension / 2 ][ j + l + pDimension / 2 ].getBlue( );
 
-                        // Si es un píxel del borde no cuenta para el divisor
+                        // Si es un pï¿½xel del borde no cuenta para el divisor
                         if( i + l < 0 || i + l > alto || j + k < 0 || j + k > ancho )
                         {
                             divisor -= pConvolucion[ k + pDimension / 2 ][ l + pDimension / 2 ];
@@ -346,7 +346,7 @@ public class Imagen
                         sumaBlue = 0;
                     }
 
-                    // Cambia el píxel en la imagen
+                    // Cambia el pï¿½xel en la imagen
                     bitmap[ i ][ j ] = new Color( ( int )sumaRed, ( int )sumaGreen, ( int )sumaBlue );
                 }
                 else
@@ -378,7 +378,7 @@ public class Imagen
                         sumaBlue = 0;
                     }
 
-                    // Cambia el píxel en la imagen
+                    // Cambia el pï¿½xel en la imagen
                     bitmap[ i ][ j ] = new Color( ( int )sumaRed, ( int )sumaGreen, ( int )sumaBlue );
                 }
             }
@@ -395,19 +395,19 @@ public class Imagen
     }
 
     /**
-     * Busca el color promedio de la región de la imagen El color promedio es formado por los promedios de rojos, verdes y azules de cada pixel.
+     * Busca el color promedio de la regiï¿½n de la imagen El color promedio es formado por los promedios de rojos, verdes y azules de cada pixel.
      * @param pXInicial Coordenada x del pixel de inicio.
      * @param pYInicial Coordenada y del pixel de inicio.
      * @param pXFinal Coordenada x del pixel final.
      * @param pYFinal Coordenada y del pixel final.
-     * @return Color promedio de la región.
+     * @return Color promedio de la regiï¿½n.
      */
     private Color colorPromedio( int pXInicial, int pYInicial, int pXFinal, int pYFinal )
     {
         int valorMedioRojo = 0, valorMedioVerde = 0, valorMedioAzul = 0;
         int totalPixeles = ( pXFinal - pXInicial + 1 ) * ( pYFinal - pYInicial + 1 );
 
-        // Recorre la región para promediar los componentes de los colores
+        // Recorre la regiï¿½n para promediar los componentes de los colores
         for( int i = pYInicial; i <= pYFinal; i++ )
         {
             for( int j = pXInicial; j <= pXFinal; j++ )
@@ -425,19 +425,19 @@ public class Imagen
     }
 
     /**
-     * Calcula el menor divisor del número dado que sea mayor a 1.
-     * @param pNumero Al que se le buscará el divisor.
-     * @return Divisor mayor a uno del número.
+     * Calcula el menor divisor del nï¿½mero dado que sea mayor a 1.
+     * @param pNumero Al que se le buscarï¿½ el divisor.
+     * @return Divisor mayor a uno del nï¿½mero.
      */
     private int menorDivisorMayorAUno( int pNumero )
     {
         boolean encontrado = false;
-        // Si el número es par el divisor menor es 2
+        // Si el nï¿½mero es par el divisor menor es 2
         int divisor = 2;
 
         if( pNumero % divisor != 0 )
         {
-            // Si el número es impar le busca un divisor impar
+            // Si el nï¿½mero es impar le busca un divisor impar
             divisor = 3;
             while( divisor < pNumero && !encontrado )
             {
@@ -456,8 +456,8 @@ public class Imagen
     }
 
     /**
-     * Cambia el color de los pixeles de la región al dado como parámetro.
-     * @param pColor Color de la nueva región.
+     * Cambia el color de los pixeles de la regiï¿½n al dado como parï¿½metro.
+     * @param pColor Color de la nueva regiï¿½n.
      * @param pXInicial Coordenada x del pixel de inicio.
      * @param pYInicial Coordenada y del pixel de inicio.
      * @param pXFinal Coordenada x del pixel final.
@@ -475,14 +475,14 @@ public class Imagen
     }
 
     /**
-     * Crea una copia de la imagen pero le adiciona un borde de pixeles de color negro, esto con el fin de poder operar con más facilidad la matriz de <br>
-     * convolución con las esquinas de la imagen, y sin alterar el resultado de los bordes.
+     * Crea una copia de la imagen pero le adiciona un borde de pixeles de color negro, esto con el fin de poder operar con mï¿½s facilidad la matriz de <br>
+     * convoluciï¿½n con las esquinas de la imagen, y sin alterar el resultado de los bordes.
      * @param pBorde Ancho en pixeles del borde (sobre un lado).
      * @return Copia de la imagen (mapa de colores).
      */
     private Color[][] copiarConBorde( int pBorde )
     {
-        // Crea una copia de la imagen original que incluye un marco de píxeles negros
+        // Crea una copia de la imagen original que incluye un marco de pï¿½xeles negros
         Color[][] copia = new Color[alto + 2 * pBorde][ancho + 2 * pBorde];
 
         // Recorre la imagen pero incluye el borde
@@ -490,7 +490,7 @@ public class Imagen
         {
             for( int j = 0; j < ancho + pBorde * 2; j++ )
             {
-                // Si el píxel es del borde, es de color negro
+                // Si el pï¿½xel es del borde, es de color negro
                 if( i < pBorde || i >= alto + pBorde || j < pBorde || j >= ancho + pBorde )
                 {
                     copia[ i ][ j ] = Color.BLACK;
@@ -507,11 +507,11 @@ public class Imagen
     }
 
     // -----------------------------------------------------------------
-    // Puntos de extensión
+    // Puntos de extensiï¿½n
     // -----------------------------------------------------------------
 
     /**
-     * Método de extensión 1.
+     * Mï¿½todo de extensiï¿½n 1.
      * @return Respuesta 1.
      */
     public String metodo1( )
@@ -520,7 +520,7 @@ public class Imagen
     }
 
     /**
-     * Método de extensión 2.
+     * Mï¿½todo de extensiï¿½n 2.
      * @return Respuesta 2.
      */
     public String metodo2( )

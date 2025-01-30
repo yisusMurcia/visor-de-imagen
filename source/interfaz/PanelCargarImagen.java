@@ -1,6 +1,6 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -8,7 +8,7 @@
  * Autor: Equipo Cupi2 2017
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
  */
-package uniandes.cupi2.visorImagen.interfaz;
+package interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -32,7 +32,7 @@ public class PanelCargarImagen extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Constante del botón de cargar imagen.
+     * Constante del botï¿½n de cargar imagen.
      */
     private final static String CARGAR = "Cargar";
 
@@ -41,19 +41,14 @@ public class PanelCargarImagen extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Botón para cargar la imagen.
+     * Botï¿½n para cargar la imagen.
      */
     private JButton btnCargar;
 
     /**
-     * Campo de texto donde se mostrará la ruta de la imagen.
-     */
-    private JTextField txtRuta;
-
-    /**
      * Etiqueta de la ruta.
      */
-    private JLabel lblRuta;
+    private final JLabel lblNombre;
 
     // -----------------------------------------------------------------
     // Atributos
@@ -77,20 +72,16 @@ public class PanelCargarImagen extends JPanel implements ActionListener
         // Guarda la referencia al padre
         principal = pPrincipal;
 
-        // Establece el distribuidor gráfico
+        // Establece el distribuidor grï¿½fico
         setLayout( new BorderLayout( ) );
         setBorder( new TitledBorder( "Cargar Imagen" ) );
         setPreferredSize( new Dimension( 1024, 20 ) );
 
         // Crea e inicializa los elementos de la interfaz
 
-        lblRuta = new JLabel( "Ruta de la Imagen: " );
-        add( lblRuta, BorderLayout.WEST );
+        lblNombre = new JLabel( "Imagen de prueba" );
+        add(lblNombre, BorderLayout.WEST );
 
-        txtRuta = new JTextField( );
-        txtRuta.setEnabled( false );
-
-        add( txtRuta, BorderLayout.CENTER );
 
         btnCargar = new JButton( CARGAR );
         btnCargar.addActionListener( this );
@@ -100,12 +91,12 @@ public class PanelCargarImagen extends JPanel implements ActionListener
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
      * Ejecuta las acciones de los elementos de la interfaz
-     * @param pEvento Evento de la acción. pEvento != null.
+     * @param pEvento Evento de la acciï¿½n. pEvento != null.
      */
     public void actionPerformed( ActionEvent pEvento )
     {
@@ -119,11 +110,11 @@ public class PanelCargarImagen extends JPanel implements ActionListener
 
     /**
      * Actualiza la ruta de la imagen en el campo de texto.
-     * @param pRuta La ruta de la imagen que se cargó.
+     * @param nombreImagen Nombre de la imagÃ©n aÃ±adida
      */
-    public void actualizarRuta( String pRuta )
+    public void actualizarRuta( String nombreImagen )
     {
-        txtRuta.setText( pRuta );
+        lblNombre.setText(nombreImagen);
     }
 
 }

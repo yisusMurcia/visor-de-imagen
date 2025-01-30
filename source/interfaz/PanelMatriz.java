@@ -1,6 +1,6 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -8,14 +8,14 @@
  * Autor: Equipo Cupi2 2017
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
  */
-package uniandes.cupi2.visorImagen.interfaz;
+package interfaz;
 
 import java.awt.*;
 
 import javax.swing.*;
 
 /**
- * Panel donde se entran los datos de la matriz de convolución.
+ * Panel donde se entran los datos de la matriz de convoluciï¿½n.
  */
 @SuppressWarnings("serial")
 public class PanelMatriz extends JPanel
@@ -25,7 +25,7 @@ public class PanelMatriz extends JPanel
     // -----------------------------------------------------------------
 
     /**
-     * Campos donde se indican los valores de la matriz de convolución.
+     * Campos donde se indican los valores de la matriz de convoluciï¿½n.
      */
     private JTextField factores[][];
 
@@ -34,7 +34,7 @@ public class PanelMatriz extends JPanel
     // -----------------------------------------------------------------
 
     /**
-     * Crea el panel para recibir los datos de la matriz de convolución.
+     * Crea el panel para recibir los datos de la matriz de convoluciï¿½n.
      */
     public PanelMatriz( )
     {
@@ -42,7 +42,7 @@ public class PanelMatriz extends JPanel
 
         factores = new JTextField[dimension][dimension];
 
-        // Establece el distribuidor gráfico
+        // Establece el distribuidor grï¿½fico
         setLayout( new GridLayout( dimension, dimension ) );
 
         // Crea, inicializa y adiciona los campos de texto
@@ -55,7 +55,7 @@ public class PanelMatriz extends JPanel
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
@@ -69,8 +69,8 @@ public class PanelMatriz extends JPanel
     }
 
     /**
-     * Retorna la matriz de convolución definida por el usuario.
-     * @return La matriz de convolución.
+     * Retorna la matriz de convoluciï¿½n definida por el usuario.
+     * @return La matriz de convoluciï¿½n.
      */
     public double[][] darMatriz( )
     {
@@ -86,7 +86,7 @@ public class PanelMatriz extends JPanel
                 }
                 catch( Exception e )
                 {
-                    JOptionPane.showMessageDialog( this, "Factor inválido: " + factores[ i ][ j ].getText( ), "Matriz de Convolución", JOptionPane.ERROR_MESSAGE );
+                    JOptionPane.showMessageDialog( this, "Factor invï¿½lido: " + factores[ i ][ j ].getText( ), "Matriz de Convoluciï¿½n", JOptionPane.ERROR_MESSAGE );
                     factores[ i ][ j ].setText( "0" );
                     error = true;
                     matriz = null;

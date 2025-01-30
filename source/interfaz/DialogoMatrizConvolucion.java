@@ -1,14 +1,9 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n6_visorImagen
- * Autor: Equipo Cupi2 2017
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+/**
+ *Visor de imáganes
+ @author: Jesús Antonio Murcia - Luis Fernando Lopez
+  *Fecha: 1/29/2025
  */
-package uniandes.cupi2.visorImagen.interfaz;
+package interfaz;
 
 import java.awt.*;
 
@@ -26,7 +21,7 @@ public class DialogoMatrizConvolucion extends JDialog
     /**
      * Panel de la matriz.
      */
-    private PanelMatriz panelMatriz;
+    private final PanelMatriz panelMatriz;
 
     /**
      * Panel de los botones.
@@ -36,7 +31,7 @@ public class DialogoMatrizConvolucion extends JDialog
     /**
      * Interfaz padre.
      */
-    private InterfazVisorImagen principal;
+    private final InterfazVisorImagen principal;
 
     // -----------------------------------------------------------------
     // Constructores
@@ -79,7 +74,7 @@ public class DialogoMatrizConvolucion extends JDialog
      */
     public void aceptar( )
     {
-        double conv[][] = panelMatriz.darMatriz( );
+        double[][] conv = panelMatriz.darMatriz( );
         if( conv != null )
         {
             principal.aplicarOperadorConvolucion( conv );

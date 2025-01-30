@@ -1,21 +1,16 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n6_visorImagen
- * Autor: Equipo Cupi2 2017
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+/**
+ *Visor de imÃ¡ganes
+ @author: JesÃºs Antonio Murcia - Luis Fernando Lopez
+  *Fecha: 1/29/2025
  */
-package uniandes.cupi2.visorImagen.interfaz;
+package interfaz;
 
 import java.awt.*;
 
 import javax.swing.*;
 
 /**
- * Diálogo para pedir el umbral para la binarización.
+ * Dialogo para pedir el umbral para la binarizacion.
  */
 @SuppressWarnings("serial")
 public class DialogoUmbralBinarizacion extends JDialog
@@ -27,7 +22,7 @@ public class DialogoUmbralBinarizacion extends JDialog
     /**
      * Panel del umbral.
      */
-    private PanelUmbral panelUmbral;
+    private final PanelUmbral panelUmbral;
 
     /**
      * Panel de los botones.
@@ -44,18 +39,18 @@ public class DialogoUmbralBinarizacion extends JDialog
     // -----------------------------------------------------------------
 
     /**
-     * Crea el diálogo para el umbral de la binarización.
-     * @param pPrincipal Ventana del diálogo.
+     * Crea el diï¿½logo para el umbral de la binarizaciï¿½n.
+     * @param pPrincipal Ventana del diï¿½logo.
      */
     public DialogoUmbralBinarizacion( InterfazVisorImagen pPrincipal )
     {
         principal = pPrincipal;
 
-        setTitle( "Umbral de binarización" );
+        setTitle( "Umbral de binarizaciÃ³n" );
         setSize( 250, 90 );
         setDefaultCloseOperation( JDialog.DISPOSE_ON_CLOSE );
 
-        // Establece el distribuidor gráfico
+        // Establece el distribuidor grï¿½fico
         setLayout( new BorderLayout( ) );
 
         // Crea, inicializa y adiciona el panel
@@ -63,7 +58,7 @@ public class DialogoUmbralBinarizacion extends JDialog
 
         // Sugiere como umbral el color promedio de toda la imagen
         Color promedio = principal.colorPromedio( );
-        double umbral = ( promedio.getBlue( ) + promedio.getGreen( ) + promedio.getRed( ) ) / 3;
+        double umbral = (double) (promedio.getBlue() + promedio.getGreen() + promedio.getRed()) / 3;
         panelUmbral.asignarUmbral( umbral );
         add( panelUmbral, BorderLayout.CENTER );
 
@@ -77,7 +72,7 @@ public class DialogoUmbralBinarizacion extends JDialog
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**

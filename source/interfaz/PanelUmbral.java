@@ -1,6 +1,6 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -8,14 +8,14 @@
  * Autor: Equipo Cupi2 2017
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
  */
-package uniandes.cupi2.visorImagen.interfaz;
+package interfaz;
 
 import java.awt.*;
 
 import javax.swing.*;
 
 /**
- * Panel donde se entra el valor del umbral para la binarización.
+ * Panel donde se entra el valor del umbral para la binarizaciï¿½n.
  */
 @SuppressWarnings("serial")
 public class PanelUmbral extends JPanel
@@ -39,14 +39,14 @@ public class PanelUmbral extends JPanel
     // -----------------------------------------------------------------
 
     /**
-     * Crea el panel para recibir el umbral de binarización.
+     * Crea el panel para recibir el umbral de binarizaciï¿½n.
      */
     public PanelUmbral( )
     {
-        // Establece el distribuidor gráfico
+        // Establece el distribuidor grï¿½fico
         setLayout( new GridLayout( 1, 2 ) );
 
-        // Crea, inicializa los elementos de la interfaz y adiciona los componentes gráficos
+        // Crea, inicializa los elementos de la interfaz y adiciona los componentes grï¿½ficos
         txtUmbral = new JTextField( );
         txtUmbral.setForeground( Color.BLUE );
         labUmbral = new JLabel( "Umbral:" );
@@ -56,12 +56,12 @@ public class PanelUmbral extends JPanel
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
      * Retorna el valor del umbral.
-     * @return Retorna el valor de umbral ingresado por el usuario, o -1 si no es un valor válido.
+     * @return Retorna el valor de umbral ingresado por el usuario, o -1 si no es un valor vï¿½lido.
      */
     public double darUmbral( )
     {
@@ -72,7 +72,7 @@ public class PanelUmbral extends JPanel
         }
         catch( Exception e )
         {
-            JOptionPane.showMessageDialog( this, "Umbral inválido: " + txtUmbral.getText( ), "Umbral de BinariaaciónMatriz de Convolución", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog( this, "Umbral invï¿½lido: " + txtUmbral.getText( ), "Umbral de Binariaaciï¿½nMatriz de Convoluciï¿½n", JOptionPane.ERROR_MESSAGE );
             txtUmbral.setText( "0" );
             umbral = -1;
         }

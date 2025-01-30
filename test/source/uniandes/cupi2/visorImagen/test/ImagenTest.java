@@ -1,6 +1,6 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
+ * Universidad de los Andes (Bogotï¿½ - Colombia)
+ * Departamento de Ingenierï¿½a de Sistemas y Computaciï¿½n 
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
@@ -15,10 +15,10 @@ import java.io.*;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import uniandes.cupi2.visorImagen.mundo.*;
+import mundo.*;
 
 /**
- * Clase de prueba para el visor de imágenes
+ * Clase de prueba para el visor de imï¿½genes
  */
 public class ImagenTest
 {
@@ -42,7 +42,7 @@ public class ImagenTest
     private int ancho;
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
@@ -100,7 +100,7 @@ public class ImagenTest
     }
 
     /**
-     * Prueba la carga de una imagen menor al máximo
+     * Prueba la carga de una imagen menor al mï¿½ximo
      */
     @Test
     public void testCargaImagenPequenia( )
@@ -148,7 +148,7 @@ public class ImagenTest
     }
 
     /**
-     * Prueba del cálculo del color promedio
+     * Prueba del cï¿½lculo del color promedio
      */
     @Test
     public void testColorPromedioImagenBlanca( )
