@@ -14,6 +14,7 @@ import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import mundo.*;
@@ -43,7 +44,7 @@ public class PanelImagen extends JPanel
     // -----------------------------------------------------------------
 
     /**
-     * Crea el panel donde se proyectar� la imagen. Si no encuentra la imagen se presenta el panel vac�o.
+     * Crea el panel donde se proyecta la imagen. Si no encuentra la imagen se presenta el panel vacío.
      */
     public PanelImagen( )
     {
@@ -52,6 +53,7 @@ public class PanelImagen extends JPanel
             imagen = new Imagen( "data/imagen.bmp" );
             imagenPintar = imagen.darImagenBuffer( );
             setPreferredSize( new Dimension( imagenPintar.getWidth( ), imagenPintar.getHeight( ) ) );
+            guardarImagen("imagenOriginal");
         }
         catch( IOException e )
         {
@@ -61,8 +63,22 @@ public class PanelImagen extends JPanel
     }
 
     // -----------------------------------------------------------------
-    // M�todos
+    // Métodos
     // -----------------------------------------------------------------
+
+    /**
+     * guardar imagen
+     * @param nombre especifica el nombre de la imagen, se guarfa en formato png
+     */
+    public void guardarImagen(String nombre){
+        try {
+            File archivo = new File(nombre + ".png");
+            ImageIO.write(imagenPintar, "png", archivo);
+            System.out.println("Imagen guardada en: " + archivo.getAbsolutePath());
+        } catch (IOException|IllegalArgumentException e) {
+            System.out.println("Error al guardar la imagen: " + e.getMessage());
+        }
+    }
 
     /**
      * Retorna el color promedio de la imagen.
@@ -79,7 +95,7 @@ public class PanelImagen extends JPanel
     }
 
     /**
-     * Procesa la imagen con el m�todo que permite convertirla en su negativo.
+     * Procesa la imagen con el método que permite convertirla en su negativo.
      */
     public void convertirNegativo( )
     {
@@ -91,7 +107,7 @@ public class PanelImagen extends JPanel
     }
 
     /**
-     * Procesa la imagen con el m�todo que permite calcular su reflejo.
+     * Procesa la imagen con el método que permite calcular su reflejo.
      */
     public void reflejarImagen( )
     {
@@ -116,7 +132,7 @@ public class PanelImagen extends JPanel
     }
 
     /**
-     * Procesa la imagen con el m�todo que permite hacer un pixelamiento.
+     * Procesa la imagen con el método que permite hacer un pixelamiento.
      */
     public void pixelarImagen( )
     {
@@ -128,7 +144,7 @@ public class PanelImagen extends JPanel
     }
 
     /**
-     * Procesa la imagen con el m�todo que permite convertirla a tonos de gris.
+     * Procesa la imagen con el método que permite convertirla a tonos de gris.
      */
     public void convertirAGrises( )
     {
@@ -140,8 +156,8 @@ public class PanelImagen extends JPanel
     }
 
     /**
-     * Procesa la imagen con el m�todo que permite aplicar un operador de convoluci�n, expresado como una matriz de valores.
-     * @param pConv Matriz de convoluci�n. pConv != null.
+     * Procesa la imagen con el método que permite aplicar un operador de convoluci�n, expresado como una matriz de valores.
+     * @param pConv Matriz de convolución. pConv != null.
      */
     public void aplicarOperadorConvolucion( double pConv[][] )
     {
@@ -211,4 +227,12 @@ public class PanelImagen extends JPanel
         }
     }
 
+    /**
+     * Modifca el método repaint para además guardar la edición de la imagen
+     */
+    @Override
+    public void repaint() {
+        super.repaint();
+        guardarImagen("imagenEditada");
+    }
 }
