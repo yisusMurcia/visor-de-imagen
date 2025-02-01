@@ -28,7 +28,7 @@ public class Imagen
     /**
      * Matriz de colores de la imagen.
      */
-    private Color[][] bitmap;
+    private int[][] bitmap;
 
     /**
      * Ancho de la imagen.
@@ -60,8 +60,6 @@ public class Imagen
     {
         ruta = pRuta;
         cargarImagen( ruta );
-        System.out.println(alto);
-        System.out.println(ancho);
     }
 
     // -----------------------------------------------------------------
@@ -83,7 +81,7 @@ public class Imagen
         }
         else
         {
-            color = bitmap[ pY ][ pX ];
+            color = new Color(bitmap[ pY ][ pX ]);
         }
         return color;
     }
@@ -127,13 +125,13 @@ public class Imagen
 
         ancho = bmp.getWidth( );
         alto = bmp.getHeight( );
-        bitmap = new Color[alto][ancho];
+        bitmap = new int[alto][ancho];
 
         for( int i = 0; i < alto; i++ )
         {
             for( int j = 0; j < ancho; j++ )
             {
-                bitmap[ i ][ j ] = new Color( bmp.getRGB( j, i ) );
+                bitmap[i][ j ] = bmp.getRGB( j, i );
             }
         }
     }
@@ -149,7 +147,7 @@ public class Imagen
         {
             for( int j = 0; j < ancho; j++ )
             {
-                imagen.setRGB( j, i, bitmap[ i ][ j ].getRGB( ) );
+                imagen.setRGB( j, i, bitmap[ i ][ j ]);
             }
         }
         return imagen;
@@ -159,20 +157,19 @@ public class Imagen
      * Convierte la imagen en negativo.
      * El negativo se calcula cambiando cada componente RGB, tomando el valor absoluto de restarle al componente 255.
      */
-    public void convertirNegativo( )
-    {
+    public void convertirNegativo( ) {
         // Recorre la matriz y calcula los componentes del nuevo color
         for( int i = 0; i < alto; i++ )
         {
             for( int j = 0; j < ancho; j++ )
             {
-                Color pixel = bitmap[ i ][ j ];
+                Color pixel = new Color(bitmap[ i ][ j ]);
 
                 int nuevoR = Math.abs( pixel.getRed( ) - 255 );
 
                 int nuevoG = Math.abs( pixel.getGreen( ) - 255 );
                 int nuevoB = Math.abs( pixel.getBlue( ) - 255 );
-                bitmap[ i ][ j ] = new Color( nuevoR, nuevoG, nuevoB );
+                bitmap[ i ][ j ] = new Color( nuevoR, nuevoG, nuevoB ).getRGB();
             }
         }
     }
@@ -188,7 +185,7 @@ public class Imagen
         {
             for( int j = 0; j < ancho / 2; j++ )
             {
-                Color temporal = bitmap[ i ][ j ];
+                int temporal = bitmap[ i ][ j ];
                 bitmap[ i ][ j ] = bitmap[ i ][ ancho - 1 - j ];
                 bitmap[ i ][ ancho - 1 - j ] = temporal;
             }
@@ -208,15 +205,15 @@ public class Imagen
         {
             for( int j = 0; j < ancho; j++ )
             {
-                Color pixel = bitmap[ i ][ j ];
+                Color pixel = new Color(bitmap[ i ][ j ]);
                 int promedio = ( pixel.getBlue( ) + pixel.getGreen( ) + pixel.getRed( ) ) / 3;
                 if( promedio < pUmbral )
                 {
-                    bitmap[ i ][ j ] = Color.BLACK;
+                    bitmap[ i ][ j ] = Color.BLACK.getRGB();
                 }
                 else
                 {
-                    bitmap[ i ][ j ] = Color.WHITE;
+                    bitmap[ i ][ j ] = Color.WHITE.getRGB();
                 }
             }
         }
@@ -255,9 +252,9 @@ public class Imagen
         {
             for( int j = 0; j < ancho; j++ )
             {
-                Color pixel = bitmap[ i ][ j ];
+                Color pixel = new Color(bitmap[ i ][ j ]);
                 int rgbGris = ( pixel.getBlue( ) + pixel.getGreen( ) + pixel.getRed( ) ) / 3;
-                bitmap[ i ][ j ] = new Color( rgbGris, rgbGris, rgbGris );
+                bitmap[ i ][ j ] = new Color( rgbGris, rgbGris, rgbGris ).getRGB();
             }
         }
     }
@@ -349,7 +346,7 @@ public class Imagen
                     }
 
                     // Cambia el p�xel en la imagen
-                    bitmap[ i ][ j ] = new Color( ( int )sumaRed, ( int )sumaGreen, ( int )sumaBlue );
+                    bitmap[ i ][ j ] = new Color( ( int )sumaRed, ( int )sumaGreen, ( int )sumaBlue ).getRGB();
                 }
                 else
                 {
@@ -381,7 +378,7 @@ public class Imagen
                     }
 
                     // Cambia el p�xel en la imagen
-                    bitmap[ i ][ j ] = new Color( ( int )sumaRed, ( int )sumaGreen, ( int )sumaBlue );
+                    bitmap[ i ][ j ] = new Color( ( int )sumaRed, ( int )sumaGreen, ( int )sumaBlue ).getRGB();
                 }
             }
         }
@@ -409,14 +406,15 @@ public class Imagen
         int valorMedioRojo = 0, valorMedioVerde = 0, valorMedioAzul = 0;
         int totalPixeles = ( pXFinal - pXInicial + 1 ) * ( pYFinal - pYInicial + 1 );
 
-        // Recorre la regi�n para promediar los componentes de los colores
+        // Recorre la región para promediar los componentes de los colores
         for( int i = pYInicial; i <= pYFinal; i++ )
         {
             for( int j = pXInicial; j <= pXFinal; j++ )
             {
-                valorMedioRojo += bitmap[ i ][ j ].getRed( );
-                valorMedioVerde += bitmap[ i ][ j ].getGreen( );
-                valorMedioAzul += bitmap[ i ][ j ].getBlue( );
+                Color color = new Color(bitmap[ i ][ j ]);
+                valorMedioRojo += color.getRed( );
+                valorMedioVerde += color.getGreen( );
+                valorMedioAzul += color.getBlue( );
             }
         }
 
@@ -471,7 +469,7 @@ public class Imagen
         {
             for( int j = pXInicial; j <= pXFinal && j < ancho; j++ )
             {
-                bitmap[ i ][ j ] = pColor;
+                bitmap[ i ][ j ] = pColor.getRGB();
             }
         }
     }
@@ -501,7 +499,7 @@ public class Imagen
                 else
                 // Si no lo toma de la imagen
                 {
-                    copia[ i ][ j ] = new Color( bitmap[ i - pBorde ][ j - pBorde ].getRGB( ) );
+                    copia[ i ][ j ] = new Color( bitmap[ i - pBorde ][ j - pBorde ]);
                 }
             }
         }
@@ -513,9 +511,9 @@ public class Imagen
      * intercambia el ancho por alto y copia los valores de cada fila invertidos en cada columna
      */
     public void rotarImagen(){
-        Color [][] matrizRotada = new Color[ancho][alto];
+        int [][] matrizRotada = new int[ancho][alto];
         for(int i = 0; i < alto; i ++){
-            Color[] vector = bitmap[i];
+            int[] vector = bitmap[i];
             for(int j = 0; j < ancho; j++){
                 matrizRotada[j][i] = vector[ancho -1 - j];
             }
@@ -530,7 +528,7 @@ public class Imagen
     }
 
     // -----------------------------------------------------------------
-    // Puntos de extensi�n
+    // Puntos de extensión
     // -----------------------------------------------------------------
 
     /**
