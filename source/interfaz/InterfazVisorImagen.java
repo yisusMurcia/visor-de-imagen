@@ -190,8 +190,8 @@ public class InterfazVisorImagen extends JFrame
     /**
      * Extensión 2.
      */
-    public void reqFuncOpcion2( )
+    public void restaurar( )
     {
-        panelImagen.extension2( );
+        panelImagen.restaurarImagen( );
     }
 }

@@ -1,13 +1,3 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n 
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n6_visorImagen
- * Autor: Equipo Cupi2 2017
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
 package interfaz;
 
 import java.awt.BorderLayout;
@@ -32,7 +22,7 @@ public class PanelCargarImagen extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Constante del bot�n de cargar imagen.
+     * Constante del botón de cargar imagen.
      */
     private final static String CARGAR = "Cargar";
 
@@ -41,7 +31,7 @@ public class PanelCargarImagen extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Bot�n para cargar la imagen.
+     * Botón para cargar la imagen.
      */
     private JButton btnCargar;
 
@@ -91,7 +81,7 @@ public class PanelCargarImagen extends JPanel implements ActionListener
     }
 
     // -----------------------------------------------------------------
-    // M�todos
+    // Métodos
     // -----------------------------------------------------------------
 
     /**

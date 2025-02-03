@@ -1,13 +1,4 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n 
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n6_visorImagen
- * Autor: Equipo Cupi2 2017
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
+
 package interfaz;
 
 import java.awt.*;
@@ -23,8 +14,7 @@ import mundo.*;
  * Panel para dibujar la imagen.
  */
 @SuppressWarnings("serial")
-public class PanelImagen extends JPanel
-{
+public class PanelImagen extends JPanel{
     // -----------------------------------------------------------------
     // Atributos
     // -----------------------------------------------------------------
@@ -215,16 +205,10 @@ public class PanelImagen extends JPanel
     }
 
     /**
-     * Procesa la imagen con el m�todo de extensi�n 2.
+     * Restaura la imagen original
      */
-    public void extension2( )
-    {
-        if( imagen != null )
-        {
-            String respuesta = imagen.metodo2( );
-            JOptionPane.showMessageDialog( this, respuesta, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
-            repaint( );
-        }
+    public void restaurarImagen( ){
+        actualizarImagen(imagen.getRuta());
     }
 
     /**

@@ -63,8 +63,16 @@ public class Imagen
     }
 
     // -----------------------------------------------------------------
-    // M�todos
+    // Métodos
     // -----------------------------------------------------------------
+
+    /**
+     * Retorna la ruta de la imagen.
+     * @return Ruta de la imagen.
+     */
+    public String getRuta() {
+        return ruta;
+    }
 
     /**
      * Retorna el color de un pixel seg�n su ubicaci�n en la imagen.
@@ -525,27 +533,5 @@ public class Imagen
         int altoTemp = alto;
         alto = ancho;
         ancho = altoTemp;
-    }
-
-    // -----------------------------------------------------------------
-    // Puntos de extensión
-    // -----------------------------------------------------------------
-
-    /**
-     * M�todo de extensi�n 1.
-     * @return Respuesta 1.
-     */
-    public String metodo1( )
-    {
-        return "Respuesta 1";
-    }
-
-    /**
-     * M�todo de extensi�n 2.
-     * @return Respuesta 2.
-     */
-    public String metodo2( )
-    {
-        return "Respuesta 2";
     }
 }
