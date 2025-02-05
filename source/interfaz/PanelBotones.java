@@ -1,5 +1,7 @@
 package interfaz;
 
+import mundo.GuardarImagen;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -176,6 +178,7 @@ public class PanelBotones extends JPanel implements ActionListener
     /**
      * Ejecuta las acciones de los elementos de la interfaz.
      * @param pEvento Evento de la acci�n. pEvento != null.
+     * guarda la imagen en un archivo.
      */
     public void actionPerformed( ActionEvent pEvento )
     {
@@ -189,6 +192,9 @@ public class PanelBotones extends JPanel implements ActionListener
             case CONVOLUCION -> principal.presentarDialogoMatrizConvolucion();
             case ROTAR -> principal.rotar();
             case RESTAURAR -> principal.restaurar();
+        }
+        if(!GuardarImagen.guardarImagen(principal.getBufferedImage(), "imagenEditada")){
+            PanelDeAlertas.mostrarAlerta("No se pudo guardar la imagen", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

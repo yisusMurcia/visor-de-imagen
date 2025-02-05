@@ -9,6 +9,7 @@ package interfaz;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.swing.JFileChooser;
@@ -78,6 +79,11 @@ public class InterfazVisorImagen extends JFrame
 
         setLocationRelativeTo( null );
         setResizable( false );
+    }
+
+    public BufferedImage getBufferedImage(){
+
+        return panelImagen.getImagenPintar();
     }
 
     /**
@@ -174,13 +180,8 @@ public class InterfazVisorImagen extends JFrame
     {
         panelImagen.aplicarOperadorConvolucion( pConv );
     }
-
-    // -----------------------------------------------------------------
-    // Puntos de Extensión
-    // -----------------------------------------------------------------
-
     /**
-     * Extensión 1.
+     * Rotar la imagen.
      */
     public void rotar( )
     {
@@ -188,7 +189,7 @@ public class InterfazVisorImagen extends JFrame
     }
 
     /**
-     * Extensión 2.
+     * Reastaura la imagen.
      */
     public void restaurar( )
     {

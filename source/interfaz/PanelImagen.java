@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import mundo.*;
@@ -43,7 +42,7 @@ public class PanelImagen extends JPanel{
             imagen = new Imagen( "data/imagen.bmp" );
             imagenPintar = imagen.darImagenBuffer( );
             setPreferredSize( new Dimension( imagenPintar.getWidth( ), imagenPintar.getHeight( ) ) );
-            guardarImagen("imagenOriginal");
+            GuardarImagen.guardarImagen(imagenPintar, "imagenOriginal");
         }
         catch( IOException e )
         {
@@ -57,17 +56,11 @@ public class PanelImagen extends JPanel{
     // -----------------------------------------------------------------
 
     /**
-     * guardar imagen
-     * @param nombre especifica el nombre de la imagen, se guarfa en formato png
+     * Retorna la imagen.
+     * @return La imagen.
      */
-    public void guardarImagen(String nombre){
-        try {
-            File archivo = new File(nombre + ".png");
-            ImageIO.write(imagenPintar, "png", archivo);
-            System.out.println("Imagen guardada en: " + archivo.getAbsolutePath());
-        } catch (IOException|IllegalArgumentException e) {
-            System.out.println("Error al guardar la imagen: " + e.getMessage());
-        }
+    public BufferedImage getImagenPintar() {
+        return imagen.darImagenBuffer();
     }
 
     /**
@@ -217,6 +210,5 @@ public class PanelImagen extends JPanel{
     @Override
     public void repaint() {
         super.repaint();
-        guardarImagen("imagenEditada");
     }
 }
