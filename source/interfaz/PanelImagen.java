@@ -4,6 +4,7 @@ package interfaz;
 import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
+import java.util.Objects;
 
 import javax.swing.*;
 
@@ -39,13 +40,14 @@ public class PanelImagen extends JPanel{
     {
         try
         {
-            imagen = new Imagen( "data/imagen.bmp" );
+            String ruta = PersistenciaRuta.cargarRuta();
+            imagen = new Imagen(Objects.requireNonNullElse(ruta,"data/imagen.bmp"));
             imagenPintar = imagen.darImagenBuffer( );
             setPreferredSize( new Dimension( imagenPintar.getWidth( ), imagenPintar.getHeight( ) ) );
             GuardarImagen.guardarImagen(imagenPintar, "imagenOriginal");
         }
-        catch( IOException e )
-        {
+        catch( IOException e ) {
+            System.out.println(e.getMessage());
             JOptionPane.showMessageDialog( this, e.getMessage( ), "No fue posible cargar la imagen, intente de nuevo", JOptionPane.ERROR_MESSAGE );
         }
 
@@ -167,7 +169,7 @@ public class PanelImagen extends JPanel{
     }
 
     /**
-     * Actualiza la imagen.
+     * Actualiza la imagen y guarda la ruta.
      * @param pRuta La ruta de la imagen nueva.
      */
     public void actualizarImagen( String pRuta )
@@ -175,12 +177,13 @@ public class PanelImagen extends JPanel{
         try
         {
             imagen = new Imagen( pRuta );
-            imagenPintar = imagen.darImagenBuffer( );
+            imagenPintar = imagen.darImagenBuffer();
             setPreferredSize( new Dimension( imagenPintar.getWidth( ), imagenPintar.getHeight( ) ) );
+            PersistenciaRuta.guardarRuta(pRuta);
             repaint( );
         }
-        catch( IOException e )
-        {
+        catch( IOException e ) {
+            System.out.println(e.getMessage());
             JOptionPane.showMessageDialog( this, e.getMessage( ), "No fue posible cargar la imagen, intente de nuevo", JOptionPane.ERROR_MESSAGE );
         }
     }
