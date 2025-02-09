@@ -1,13 +1,4 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n 
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n6_visorImagen
- * Autor: Equipo Cupi2 2017
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
+
 package mundo;
 
 import java.awt.*;
@@ -86,13 +77,10 @@ public class Imagen
      */
     public Color darColorPixel( int pX, int pY )
     {
-        Color color = null;
-        if( pX >= ancho || pY >= alto )
-        {
+        Color color;
+        if( pX >= ancho || pY >= alto ) {
             color = null;
-        }
-        else
-        {
+        }else{
             color = new Color(bitmap[ pY ][ pX ]);
         }
         return color;
@@ -281,7 +269,7 @@ public class Imagen
         // Obtiene una copia de la imagen original, pero con un marco
         // de píxeles negros para operar fácilmente las esquinas de la imagen
         // con la matriz de convoluci�n
-        Color copiaBorde[][] = copiarConBorde( pDimension / 2 );
+        Color[][] copiaBorde = copiarConBorde( pDimension / 2 );
 
         // Calcula la suma de los factores de convolución
         double sumaConvolucion = 0;

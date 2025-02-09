@@ -56,8 +56,7 @@ public class PanelImagen extends JPanel{
                 ruta = PersistenciaRuta.cargarRuta();
                 imagen.setRuta(ruta);
             }
-            imagenPintar = imagen.darImagenBuffer( );
-            setPreferredSize( new Dimension( imagenPintar.getWidth( ), imagenPintar.getHeight( ) ) );
+            establecerDimension();
 
             //Guardar datos
             GuardarImagen.guardarImagen(imagenPintar, "imagenOriginal");
@@ -193,8 +192,7 @@ public class PanelImagen extends JPanel{
         try
         {
             imagen = new Imagen( pRuta );
-            imagenPintar = imagen.darImagenBuffer();
-            setPreferredSize( new Dimension( imagenPintar.getWidth( ), imagenPintar.getHeight( ) ) );
+            establecerDimension();
             PersistenciaRuta.guardarRuta(pRuta);
             repaint( );
         }
@@ -207,12 +205,10 @@ public class PanelImagen extends JPanel{
     /**
      * Rota la imagen 90 grados
      */
-    public void rotar( )
-    {
-        if( imagen != null )
-        {
+    public void rotar( ){
+        if( imagen != null ) {
             imagen.rotarImagen();
-            setPreferredSize( new Dimension( imagen.darAlto(), imagen.darAncho( ) ) );
+            establecerDimension();
             repaint( );
         }
     }
@@ -225,10 +221,16 @@ public class PanelImagen extends JPanel{
     }
 
     /**
-     * Modifca el método repaint para además guardar la edición de la imagen
+     * Calcular la dimensión para que la imagen se ajuste al panel.
      */
-    @Override
-    public void repaint() {
-        super.repaint();
+    public void establecerDimension( ){
+        imagenPintar = imagen.darImagenBuffer();
+        if(imagenPintar.getHeight() > getHeight()){
+            setPreferredSize( new Dimension( getHeight(), imagenPintar.getHeight()/ imagenPintar.getWidth() * getHeight() ) );
+        }else if(imagen.darAncho() > getWidth()){
+            setPreferredSize( new Dimension( imagenPintar.getWidth()/ imagenPintar.getHeight() * getWidth(), getWidth() ) );
+        }else{
+            setPreferredSize( new Dimension( imagenPintar.getWidth(), imagenPintar.getHeight() ) );
+        }
     }
 }
