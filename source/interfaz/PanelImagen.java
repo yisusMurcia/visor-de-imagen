@@ -1,20 +1,11 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n 
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n6_visorImagen
- * Autor: Equipo Cupi2 2017
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
+
 package interfaz;
 
 import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
+import java.util.Objects;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import mundo.*;
@@ -23,8 +14,7 @@ import mundo.*;
  * Panel para dibujar la imagen.
  */
 @SuppressWarnings("serial")
-public class PanelImagen extends JPanel
-{
+public class PanelImagen extends JPanel{
     // -----------------------------------------------------------------
     // Atributos
     // -----------------------------------------------------------------
@@ -44,19 +34,35 @@ public class PanelImagen extends JPanel
     // -----------------------------------------------------------------
 
     /**
-     * Crea el panel donde se proyecta la imagen. Si no encuentra la imagen se presenta el panel vacío.
+     * Crea el panel donde se proyecta la imagen, preguntando si desea abrir la última imágen guardada, si no encuentra la imagen se presenta el panel vacío.
      */
     public PanelImagen( )
     {
         try
         {
-            imagen = new Imagen( "data/imagen.bmp" );
-            imagenPintar = imagen.darImagenBuffer( );
-            setPreferredSize( new Dimension( imagenPintar.getWidth( ), imagenPintar.getHeight( ) ) );
-            guardarImagen("imagenOriginal");
+            //Buscar la imagen original
+            File img = new File("imagenOriginal.png");
+            int respuesta = 0;
+            String ruta = "data/imagen.bmp";
+            if(img.exists()){
+                respuesta = JOptionPane.showConfirmDialog(this, "¿Desea abrir la última imagen guardada?", "Abrir última imagen", JOptionPane.YES_NO_OPTION);
+                if(respuesta == JOptionPane.YES_OPTION){
+                    ruta = "imagenOriginal.png";
+                }
+            }
+            imagen = new Imagen(ruta);
+            //Actualizar la ruta si la imagen es restaurada
+            if(respuesta == JOptionPane.YES_OPTION){
+                ruta = PersistenciaRuta.cargarRuta();
+                imagen.setRuta(ruta);
+            }
+            establecerDimension();
+
+            //Guardar datos
+            GuardarImagen.guardarImagen(imagenPintar, "imagenOriginal");
+            PersistenciaRuta.guardarRuta(ruta);
         }
-        catch( IOException e )
-        {
+        catch( IOException e ) {
             JOptionPane.showMessageDialog( this, e.getMessage( ), "No fue posible cargar la imagen, intente de nuevo", JOptionPane.ERROR_MESSAGE );
         }
 
@@ -67,17 +73,11 @@ public class PanelImagen extends JPanel
     // -----------------------------------------------------------------
 
     /**
-     * guardar imagen
-     * @param nombre especifica el nombre de la imagen, se guarfa en formato png
+     * Retorna la imagen.
+     * @return La imagen.
      */
-    public void guardarImagen(String nombre){
-        try {
-            File archivo = new File(nombre + ".png");
-            ImageIO.write(imagenPintar, "png", archivo);
-            System.out.println("Imagen guardada en: " + archivo.getAbsolutePath());
-        } catch (IOException|IllegalArgumentException e) {
-            System.out.println("Error al guardar la imagen: " + e.getMessage());
-        }
+    public BufferedImage getImagenPintar() {
+        return imagen.darImagenBuffer();
     }
 
     /**
@@ -184,7 +184,7 @@ public class PanelImagen extends JPanel
     }
 
     /**
-     * Actualiza la imagen.
+     * Actualiza la imagen y guarda la ruta.
      * @param pRuta La ruta de la imagen nueva.
      */
     public void actualizarImagen( String pRuta )
@@ -192,12 +192,12 @@ public class PanelImagen extends JPanel
         try
         {
             imagen = new Imagen( pRuta );
-            imagenPintar = imagen.darImagenBuffer( );
-            setPreferredSize( new Dimension( imagenPintar.getWidth( ), imagenPintar.getHeight( ) ) );
+            establecerDimension();
+            PersistenciaRuta.guardarRuta(pRuta);
             repaint( );
         }
-        catch( IOException e )
-        {
+        catch( IOException e ) {
+            System.out.println(e.getMessage());
             JOptionPane.showMessageDialog( this, e.getMessage( ), "No fue posible cargar la imagen, intente de nuevo", JOptionPane.ERROR_MESSAGE );
         }
     }
@@ -205,34 +205,32 @@ public class PanelImagen extends JPanel
     /**
      * Rota la imagen 90 grados
      */
-    public void rotar( )
-    {
-        if( imagen != null )
-        {
+    public void rotar( ){
+        if( imagen != null ) {
             imagen.rotarImagen();
+            establecerDimension();
             repaint( );
         }
     }
 
     /**
-     * Procesa la imagen con el m�todo de extensi�n 2.
+     * Restaura la imagen original
      */
-    public void extension2( )
-    {
-        if( imagen != null )
-        {
-            String respuesta = imagen.metodo2( );
-            JOptionPane.showMessageDialog( this, respuesta, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
-            repaint( );
-        }
+    public void restaurarImagen( ){
+        actualizarImagen(imagen.getRuta());
     }
 
     /**
-     * Modifca el método repaint para además guardar la edición de la imagen
+     * Calcular la dimensión para que la imagen se ajuste al panel.
      */
-    @Override
-    public void repaint() {
-        super.repaint();
-        guardarImagen("imagenEditada");
+    public void establecerDimension( ){
+        imagenPintar = imagen.darImagenBuffer();
+        if(imagenPintar.getHeight() > getHeight()){
+            setPreferredSize( new Dimension( getHeight(), imagenPintar.getHeight()/ imagenPintar.getWidth() * getHeight() ) );
+        }else if(imagen.darAncho() > getWidth()){
+            setPreferredSize( new Dimension( imagenPintar.getWidth()/ imagenPintar.getHeight() * getWidth(), getWidth() ) );
+        }else{
+            setPreferredSize( new Dimension( imagenPintar.getWidth(), imagenPintar.getHeight() ) );
+        }
     }
 }
