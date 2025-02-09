@@ -15,8 +15,7 @@ import javax.swing.border.TitledBorder;
  * Panel para cargar la imagen.
  */
 @SuppressWarnings("serial")
-public class PanelCargarImagen extends JPanel implements ActionListener
-{
+public class PanelCargarImagen extends JPanel implements ActionListener {
     // -----------------------------------------------------------------
     // Constantes
     // -----------------------------------------------------------------
@@ -47,7 +46,7 @@ public class PanelCargarImagen extends JPanel implements ActionListener
     /**
      * Una referencia a la clase principal de la interfaz.
      */
-    private InterfazVisorImagen principal;
+    private final InterfazVisorImagen principal;
 
     // -----------------------------------------------------------------
     // Constructores
@@ -57,7 +56,7 @@ public class PanelCargarImagen extends JPanel implements ActionListener
      * Construye el panel para cargar la imagen.
      * @param pPrincipal Una referencia a la clase principal de la interfaz. pPrincipal != null.
      */
-    public PanelCargarImagen( InterfazVisorImagen pPrincipal )
+    public PanelCargarImagen( InterfazVisorImagen pPrincipal)
     {
         // Guarda la referencia al padre
         principal = pPrincipal;
@@ -69,7 +68,7 @@ public class PanelCargarImagen extends JPanel implements ActionListener
 
         // Crea e inicializa los elementos de la interfaz
 
-        lblNombre = new JLabel( "Imagen de prueba" );
+        lblNombre = new JLabel();
         add(lblNombre, BorderLayout.WEST );
 
 

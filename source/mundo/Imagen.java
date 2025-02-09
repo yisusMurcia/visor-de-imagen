@@ -74,6 +74,10 @@ public class Imagen
         return ruta;
     }
 
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
+    }
+
     /**
      * Retorna el color de un pixel seg�n su ubicaci�n en la imagen.
      * @param pX Coordenada horizontal.

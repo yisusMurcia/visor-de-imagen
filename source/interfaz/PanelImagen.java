@@ -34,20 +34,36 @@ public class PanelImagen extends JPanel{
     // -----------------------------------------------------------------
 
     /**
-     * Crea el panel donde se proyecta la imagen. Si no encuentra la imagen se presenta el panel vacío.
+     * Crea el panel donde se proyecta la imagen, preguntando si desea abrir la última imágen guardada, si no encuentra la imagen se presenta el panel vacío.
      */
     public PanelImagen( )
     {
         try
         {
-            String ruta = PersistenciaRuta.cargarRuta();
-            imagen = new Imagen(Objects.requireNonNullElse(ruta,"data/imagen.bmp"));
+            //Buscar la imagen original
+            File img = new File("imagenOriginal.png");
+            int respuesta = 0;
+            String ruta = "data/imagen.bmp";
+            if(img.exists()){
+                respuesta = JOptionPane.showConfirmDialog(this, "¿Desea abrir la última imagen guardada?", "Abrir última imagen", JOptionPane.YES_NO_OPTION);
+                if(respuesta == JOptionPane.YES_OPTION){
+                    ruta = "imagenOriginal.png";
+                }
+            }
+            imagen = new Imagen(ruta);
+            //Actualizar la ruta si la imagen es restaurada
+            if(respuesta == JOptionPane.YES_OPTION){
+                ruta = PersistenciaRuta.cargarRuta();
+                imagen.setRuta(ruta);
+            }
             imagenPintar = imagen.darImagenBuffer( );
             setPreferredSize( new Dimension( imagenPintar.getWidth( ), imagenPintar.getHeight( ) ) );
+
+            //Guardar datos
             GuardarImagen.guardarImagen(imagenPintar, "imagenOriginal");
+            PersistenciaRuta.guardarRuta(ruta);
         }
         catch( IOException e ) {
-            System.out.println(e.getMessage());
             JOptionPane.showMessageDialog( this, e.getMessage( ), "No fue posible cargar la imagen, intente de nuevo", JOptionPane.ERROR_MESSAGE );
         }
 
@@ -196,6 +212,7 @@ public class PanelImagen extends JPanel{
         if( imagen != null )
         {
             imagen.rotarImagen();
+            setPreferredSize( new Dimension( imagen.darAlto(), imagen.darAncho( ) ) );
             repaint( );
         }
     }
