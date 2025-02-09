@@ -180,7 +180,7 @@ public class PanelBotones extends JPanel implements ActionListener
 
     /**
      * Ejecuta las acciones de los elementos de la interfaz.
-     * @param pEvento Evento de la acci�n. pEvento != null.
+     * @param pEvento Evento de la acción. pEvento != null.
      * guarda la imagen en un archivo.
      */
     public void actionPerformed( ActionEvent pEvento )

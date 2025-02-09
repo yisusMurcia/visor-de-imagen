@@ -15,7 +15,6 @@ public class PersistenciaRuta {
             if(!archivo.exists()){
                 archivo.createNewFile();
             }
-            System.out.println(ruta);
             FileWriter escritor = new FileWriter(archivo);
             escritor.write(ruta);
             escritor.close();

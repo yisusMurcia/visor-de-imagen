@@ -101,8 +101,7 @@ public class PanelCargarImagen extends JPanel implements ActionListener {
      * Actualiza la ruta de la imagen en el campo de texto.
      * @param nombreImagen Nombre de la imagén añadida
      */
-    public void actualizarRuta( String nombreImagen )
-    {
+    public void actualizarRuta( String nombreImagen ) {
         lblNombre.setText(nombreImagen);
     }
 

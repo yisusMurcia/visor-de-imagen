@@ -197,7 +197,6 @@ public class PanelImagen extends JPanel{
             repaint( );
         }
         catch( IOException e ) {
-            System.out.println(e.getMessage());
             JOptionPane.showMessageDialog( this, e.getMessage( ), "No fue posible cargar la imagen, intente de nuevo", JOptionPane.ERROR_MESSAGE );
         }
     }

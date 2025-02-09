@@ -291,7 +291,7 @@ public class Imagen
                 double sumaGreen = 0;
                 double sumaBlue = 0;
 
-                // La divisi�n se hace en la mayor�a de los casos (excepto en los bordes)
+                // La división se hace en la mayor�a de los casos (excepto en los bordes)
                 // Restando sobre la suma de los factores de convoluci�n
                 double divisor = sumaConvolucion;
 
@@ -304,7 +304,7 @@ public class Imagen
                         sumaGreen += pConvolucion[ k + pDimension / 2 ][ l + pDimension / 2 ] * copiaBorde[ i + k + pDimension / 2 ][ j + l + pDimension / 2 ].getGreen( );
                         sumaBlue += pConvolucion[ k + pDimension / 2 ][ l + pDimension / 2 ] * copiaBorde[ i + k + pDimension / 2 ][ j + l + pDimension / 2 ].getBlue( );
 
-                        // Si es un p�xel del borde no cuenta para el divisor
+                        // Si es un píxel del borde no cuenta para el divisor
                         if( i + l < 0 || i + l > alto || j + k < 0 || j + k > ancho )
                         {
                             divisor -= pConvolucion[ k + pDimension / 2 ][ l + pDimension / 2 ];

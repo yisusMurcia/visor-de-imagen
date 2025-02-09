@@ -6,6 +6,8 @@
 
 package interfaz;
 
+import mundo.GuardarImagen;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -90,6 +92,7 @@ public class InterfazVisorImagen extends JFrame
         {
             File file = fc.getSelectedFile( );
             panelImagen.actualizarImagen( file.getAbsolutePath( ) );
+            GuardarImagen.guardarImagen(panelImagen.getImagenPintar(), "imagenOriginal");
             panelCargarImagen.actualizarRuta( file.getName());
 
         }else{
