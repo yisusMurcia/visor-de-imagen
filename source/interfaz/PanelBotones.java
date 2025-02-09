@@ -54,7 +54,7 @@ public class PanelBotones extends JPanel implements ActionListener
     /**
      * CONVOLUCION.
      */
-    public final static String CONVOLUCION = "Convolución";
+    public final static String CONVOLUCION = "Convolucion";
 
     /**
      * Rotar
@@ -64,7 +64,7 @@ public class PanelBotones extends JPanel implements ActionListener
     /**
      * Extensi�n 2.
      */
-    public final static String OPCION_2 = "Opción 2";
+    public final static String OPCION_2 = "Opcion 2";
 
     // -----------------------------------------------------------------
     // Elementos de la Interfaz
@@ -73,42 +73,44 @@ public class PanelBotones extends JPanel implements ActionListener
     /**
      * Botón negativo.
      */
-    private JButton butNegativo;
+    private JButton butNegativo = crearBotonConImagen("Negativo", "./iconos/negativo.png", 40, 40);
 
     /**
      * Botón reflejar.
      */
-    private JButton butReflejar;
+    private JButton butReflejar = crearBotonConImagen("Reflejar", "./iconos/reflejar.png", 40, 40);
 
     /**
      * Botón binarizar.
      */
-    private JButton butBinarizar;
+    private JButton butBinarizar = crearBotonConImagen("Binarizar", "./iconos/binarizar.png", 40, 40);
 
     /**
      * Botón pixelar.
      */
-    private JButton butPixelar;
+    private JButton butPixelar = crearBotonConImagen("Pixelar", "./iconos/pixelar.png", 40, 40);
 
     /**
      * Botón escala de grises.
      */
-    private JButton butEscalaGrises;
+    private JButton butEscalaGrises = crearBotonConImagen("Escala de grises", "./iconos/grises.png", 40, 40);
 
     /**
      * Botón operador de convolución.
      */
-    private JButton butConvolucion;
+    private JButton butConvolucion = crearBotonConImagen("Convolucion", "./iconos/convolucion.png", 40, 40);
 
     /**
      * Botón extensión 1.
      */
-    private JButton btnRotar;
+    private JButton btnRotar = crearBotonConImagen("Rotar", "./iconos/rotar.png", 40, 40);
 
     /**
      * Botón extensión 2.
      */
-    private JButton butExtension2;
+    private JButton butExtension2 = crearBotonConImagen("Opcion 2", "./iconos/opcion2.png", 40, 40);
+
+
 
     // -----------------------------------------------------------------
     // Atributos
@@ -127,47 +129,51 @@ public class PanelBotones extends JPanel implements ActionListener
      * Construye el panel de los botones.
      * @param pPrincipal Una referencia a la clase principal de la interfaz. pPrincipal != null.
      */
-    public PanelBotones( InterfazVisorImagen pPrincipal )
-    {
+    public PanelBotones( InterfazVisorImagen pPrincipal ) {
         // Guarda la referencia al padre
         principal = pPrincipal;
 
         // Establece el distribuidor gr�fico
-        setLayout( new GridLayout( 2, 4 ) );
-        setBorder( new TitledBorder( "Opciones" ) );
+        setLayout(new GridLayout(2, 4));
+        setBorder(new TitledBorder("Opciones"));
+
+        // Crear ventana
+
+
 
         // Crea e inicializa los elementos de la interfaz
-        butNegativo = new JButton( NEGATIVO );
-        butNegativo.setActionCommand( NEGATIVO );
-        butNegativo.addActionListener( this );
 
-        butReflejar = new JButton( REFLEJAR );
-        butReflejar.setActionCommand( REFLEJAR );
-        butReflejar.addActionListener( this );
+        butNegativo.setActionCommand(NEGATIVO);
+        butNegativo.addActionListener(this);
 
-        butBinarizar = new JButton( BINARIZAR );
-        butBinarizar.setActionCommand( BINARIZAR );
-        butBinarizar.addActionListener( this );
 
-        butPixelar = new JButton( PIXELAR );
-        butPixelar.setActionCommand( PIXELAR );
-        butPixelar.addActionListener( this );
 
-        butEscalaGrises = new JButton( ESCALA_GRISES );
-        butEscalaGrises.setActionCommand( ESCALA_GRISES );
+        butReflejar.addActionListener(this);
+
+
+
+        butBinarizar.addActionListener(this);
+
+
+
+        butPixelar.addActionListener(this);
+
+
+
         butEscalaGrises.addActionListener( this );
 
-        butConvolucion = new JButton( CONVOLUCION );
-        butConvolucion.setActionCommand( CONVOLUCION );
+
+
         butConvolucion.addActionListener( this );
 
-        btnRotar = new JButton(ROTAR);
+
         btnRotar.setActionCommand(ROTAR);
         btnRotar.addActionListener( this );
 
-        butExtension2 = new JButton( OPCION_2 );
-        butExtension2.setActionCommand( OPCION_2 );
+
+
         butExtension2.addActionListener( this );
+
 
         // Adiciona los elementos al panel
         add( butNegativo );
@@ -178,6 +184,8 @@ public class PanelBotones extends JPanel implements ActionListener
         add( butConvolucion );
         add(btnRotar);
         add( butExtension2 );
+
+        setVisible(true);
     }
 
     // -----------------------------------------------------------------
@@ -186,7 +194,7 @@ public class PanelBotones extends JPanel implements ActionListener
 
     /**
      * Ejecuta las acciones de los elementos de la interfaz.
-     * @param pEvento Evento de la acci�n. pEvento != null.
+     * @param pEvento Evento de la accion. pEvento != null.
      */
     public void actionPerformed( ActionEvent pEvento )
     {
@@ -223,5 +231,18 @@ public class PanelBotones extends JPanel implements ActionListener
         {
             principal.reqFuncOpcion2( );
         }
+    }
+    // Método para crear botones con imagen redimensionada
+    public static JButton crearBotonConImagen(String texto, String rutaimagen, int ancho, int alto) {
+        // Cargar imagen original
+        ImageIcon iconoOriginal = new ImageIcon(rutaimagen);
+        // Redimensionar la imagen
+        Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
+        ImageIcon iconoRedimensionado = new ImageIcon(imagenEscalada);
+        // Crear botón con imagen y texto
+        JButton boton = new JButton(texto, iconoRedimensionado);
+        boton.setHorizontalTextPosition(SwingConstants.RIGHT);
+        boton.setVerticalTextPosition(SwingConstants.CENTER);
+        return boton;
     }
 }
