@@ -99,7 +99,7 @@ public class PanelBotones extends JPanel implements ActionListener
     /**
      * Botón restaurar imagen.
      */
-    private JButton btnRestore;
+    private JButton btnRestore = crearBotonConImagen("Restaurar", "./iconos/restaurar.png", 40, 40);
 
     // -----------------------------------------------------------------
     // Atributos
@@ -159,7 +159,7 @@ public class PanelBotones extends JPanel implements ActionListener
         btnRotar.setActionCommand(ROTAR);
         btnRotar.addActionListener( this );
 
-        btnRestore = new JButton( RESTAURAR );
+
         btnRestore.setActionCommand(RESTAURAR);
         btnRestore.addActionListener( this );
 
