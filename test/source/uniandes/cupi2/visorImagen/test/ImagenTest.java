@@ -20,8 +20,7 @@ import mundo.*;
 /**
  * Clase de prueba para el visor de im�genes
  */
-public class ImagenTest
-{
+public class ImagenTest{
     // -----------------------------------------------------------------
     // Atributos
     // -----------------------------------------------------------------

@@ -43,8 +43,8 @@ public class Imagen
     /**
      * Crea una imagen a partir de la ruta del archivo donde esta la imagen original en BMP. La imagen numera los p�xeles desde la esquina superior izquierda <br>
      * de la imagen con (0,0). La coordenada X ve de 0 hasta el ancho-1 y la coordenada Y va de 0 a el alto-1 Si la imagen es de ancho mayor al ANCHO_MAXIMO <br>
-     * o con altura mayor a ALTO_MAXIMO, la imagen se recorta hasta los l�mites.
-     * @param pRuta Ruta de la imagen. pRuta != null && pRuta != "".
+     * o con altura mayor a ALTO_MAXIMO, la imagen se recorta hasta los límites.
+     * @param pRuta Ruta de la imagen. pRuta != null y pRuta != "".
      * @throws IOException Error al leer el archivo.
      */
     public Imagen( String pRuta ) throws IOException
@@ -65,6 +65,10 @@ public class Imagen
         return ruta;
     }
 
+    /**
+     * Modifica la ruta de la imagen.
+     * @param ruta Nueva ruta de la imagen.
+     */
     public void setRuta(String ruta) {
         this.ruta = ruta;
     }

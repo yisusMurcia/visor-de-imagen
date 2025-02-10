@@ -1,13 +1,4 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n 
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n6_visorImagen
- * Autor: Equipo Cupi2 2017
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
+
 package interfaz;
 
 import java.awt.*;
@@ -16,7 +7,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * Panel de los botones del umbral de binarizaci�n.
+ * Panel de los botones del umbral de binarizacion.
  */
 @SuppressWarnings("serial")
 public class PanelBotonesUmbral extends JPanel implements ActionListener
@@ -40,12 +31,12 @@ public class PanelBotonesUmbral extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Bot�n aceptar.
+     * Boton aceptar.
      */
     private JButton botonAceptar;
 
     /**
-     * Bot�n cancelar.
+     * Boton cancelar.
      */
     private JButton botonCancelar;
 
@@ -54,7 +45,7 @@ public class PanelBotonesUmbral extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Di�logo al que pertenece el panel.
+     * Dialogo al que pertenece el panel.
      */
     private DialogoUmbralBinarizacion dialogo;
 
@@ -63,7 +54,7 @@ public class PanelBotonesUmbral extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Crea el panel de botones del umbral de binarizaci�n.
+     * Crea el panel de botones del umbral de binarizacion.
      * @param pDialogo Di�logo al que pertenece este panel. pDialogo != null.
      */
     public PanelBotonesUmbral( DialogoUmbralBinarizacion pDialogo )
@@ -94,7 +85,7 @@ public class PanelBotonesUmbral extends JPanel implements ActionListener
 
     /**
      * Ejecuta las acciones de los elementos de la interfaz.
-     * @param pEvento Evento que gener� la acci�n. pEvento != null.
+     * @param pEvento Evento que genero la accion. pEvento != null.
      */
     public void actionPerformed( ActionEvent pEvento )
     {

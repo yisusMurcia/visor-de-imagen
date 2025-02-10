@@ -4,12 +4,17 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 
+/**
+ * Clase que se encarga de la persistencia de la ruta de la imagen.
+ */
 public class PersistenciaRuta {
+
+    /**
+     * Guarda la ruta en un archivo.
+     * @param ruta Ruta que se va a guardar. ruta != null.
+     */
     public static void guardarRuta(String ruta) {
-        /**
-         * Guarda la ruta en un archivo.
-         * @param ruta Ruta que se va a guardar. ruta != null.
-         */
+
         try {
             File archivo = new File("ruta.txt");
             if(!archivo.exists()){
@@ -22,6 +27,7 @@ public class PersistenciaRuta {
             e.printStackTrace();
         }
     }
+
     /**
      * Carga la ruta guardada en el archivo.
      */

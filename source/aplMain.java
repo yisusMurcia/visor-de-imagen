@@ -2,6 +2,9 @@ import interfaz.InterfazVisorImagen;
 
 import javax.swing.*;
 
+/**
+ * Clase principal de la aplicación.
+ */
 public class aplMain {
     // -----------------------------------------------------------------
     // Main
@@ -26,4 +29,4 @@ public class aplMain {
             e.printStackTrace( );
         }
     }
-}
+}   

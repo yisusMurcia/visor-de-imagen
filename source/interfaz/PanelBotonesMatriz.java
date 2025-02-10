@@ -1,13 +1,4 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n 
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n6_visorImagen
- * Autor: Equipo Cupi2 2017
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
+
 package interfaz;
 
 import java.awt.*;
@@ -45,17 +36,17 @@ public class PanelBotonesMatriz extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Bot�n aceptar.
+     * Boton aceptar.
      */
     private JButton butAceptar;
 
     /**
-     * Bot�n limpiar.
+     * Boton limpiar.
      */
     private JButton butLimpiar;
 
     /**
-     * Bot�n cancelar.
+     * Boton cancelar.
      */
     private JButton butCancelar;
 
@@ -64,7 +55,7 @@ public class PanelBotonesMatriz extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Di�logo al que pertenece este panel.
+     * Diálogo al que pertenece este panel.
      */
     private DialogoMatrizConvolucion dialogo;
 
@@ -73,7 +64,7 @@ public class PanelBotonesMatriz extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Crea el panel de botones de la matriz de convoluci�n.
+     * Crea el panel de botones de la matriz de convolucion.
      * @param pDialogo Di�logo al que pertenece este panel. pDialogo != null.
      */
     public PanelBotonesMatriz( DialogoMatrizConvolucion pDialogo )
@@ -104,7 +95,7 @@ public class PanelBotonesMatriz extends JPanel implements ActionListener
     }
 
     // -----------------------------------------------------------------
-    // M�todos
+    // Métodos
     // -----------------------------------------------------------------
 
     /**

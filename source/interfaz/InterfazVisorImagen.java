@@ -1,6 +1,6 @@
 /**
- *Visor de imáganes
- @author: Jesús Antonio Murcia - Luis Fernando Lopez
+ *Visor de imaganes
+ @author: Jesus Antonio Murcia - Luis Fernando Lopez
  *Fecha: 1/29/2025
  */
 
@@ -26,7 +26,7 @@ import javax.swing.JPanel;
 public class InterfazVisorImagen extends JFrame
 {
     /**
-     * Dimensión para la convolucion.
+     * Dimension para la convolucion.
      */
     public static final int DIMENSION_CONVOLUCION = 3;
 
@@ -35,6 +35,9 @@ public class InterfazVisorImagen extends JFrame
      */
     private final PanelImagen panelImagen;
 
+    /**
+     * Panel para cargar la imagen.
+     */
     private final PanelCargarImagen panelCargarImagen;
 
     /**
@@ -42,11 +45,11 @@ public class InterfazVisorImagen extends JFrame
      */
     public InterfazVisorImagen( )
     {
-        setTitle( "Visor de imágenes" );
+        setTitle( "Visor de imagenes" );
         setSize( 731, 700 );
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 
-        // Establece el distribuidor gráfico
+        // Establece el distribuidor grafico
         setLayout( new BorderLayout( ) );
 
         // Crea y adiciona el panel del banner
@@ -76,6 +79,10 @@ public class InterfazVisorImagen extends JFrame
         setResizable( false );
     }
 
+    /**
+     * Devuelve la imagen que se esta pintando.
+     * @return La imagen que se esta pintando.
+     */
     public BufferedImage getBufferedImage(){
 
         return panelImagen.getImagenPintar();
@@ -126,7 +133,7 @@ public class InterfazVisorImagen extends JFrame
     }
 
     /**
-     * Presenta el diálogo de definición del umbral de binarización.
+     * Presenta el dialogo de definicion del umbral de binarizacion.
      */
     public void presentarDialogoUmbral( )
     {
@@ -136,7 +143,7 @@ public class InterfazVisorImagen extends JFrame
 
     /**
      * Binariza la imagen.
-     * @param pUmbral Umbral de binarización.
+     * @param pUmbral Umbral de binarizacion.
      */
     public void binarizarImagen( double pUmbral )
     {
@@ -159,7 +166,7 @@ public class InterfazVisorImagen extends JFrame
     }
 
     /**
-     * Presenta el dialogo de definición de la matriz de convolución.
+     * Presenta el dialogo de definicion de la matriz de convolucion.
      */
     public void presentarDialogoMatrizConvolucion( )
     {
@@ -168,8 +175,8 @@ public class InterfazVisorImagen extends JFrame
     }
 
     /**
-     * Aplica el operador de convolución representado en la matriz.
-     * @param pConv Matriz de convolución.
+     * Aplica el operador de convolucion representado en la matriz.
+     * @param pConv Matriz de convolucion.
      */
     public void aplicarOperadorConvolucion(double[][] pConv)
     {

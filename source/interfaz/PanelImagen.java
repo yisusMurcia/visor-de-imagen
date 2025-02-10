@@ -156,7 +156,7 @@ public class PanelImagen extends JPanel{
     }
 
     /**
-     * Procesa la imagen con el método que permite aplicar un operador de convoluci�n, expresado como una matriz de valores.
+     * Procesa la imagen con el metodo que permite aplicar un operador de convoluci�n, expresado como una matriz de valores.
      * @param pConv Matriz de convolución. pConv != null.
      */
     public void aplicarOperadorConvolucion( double pConv[][] )
@@ -171,7 +171,7 @@ public class PanelImagen extends JPanel{
 
     /**
      * Pinta la imagen.
-     * @param pGraphics Gr�ficas del panel.
+     * @param pGraphics Graficas del panel.
      */
     public void paint( Graphics pGraphics )
     {

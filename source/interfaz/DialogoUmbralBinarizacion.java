@@ -39,8 +39,8 @@ public class DialogoUmbralBinarizacion extends JDialog
     // -----------------------------------------------------------------
 
     /**
-     * Crea el di�logo para el umbral de la binarizaci�n.
-     * @param pPrincipal Ventana del di�logo.
+     * Crea el dialogo para el umbral de la binarización.
+     * @param pPrincipal Ventana del diálogo.
      */
     public DialogoUmbralBinarizacion( InterfazVisorImagen pPrincipal )
     {
@@ -50,7 +50,7 @@ public class DialogoUmbralBinarizacion extends JDialog
         setSize( 250, 90 );
         setDefaultCloseOperation( JDialog.DISPOSE_ON_CLOSE );
 
-        // Establece el distribuidor gr�fico
+        // Establece el distribuidor grafico
         setLayout( new BorderLayout( ) );
 
         // Crea, inicializa y adiciona el panel

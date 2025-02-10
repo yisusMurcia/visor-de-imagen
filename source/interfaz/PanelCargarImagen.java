@@ -21,7 +21,7 @@ public class PanelCargarImagen extends JPanel implements ActionListener {
     // -----------------------------------------------------------------
 
     /**
-     * Constante del botón de cargar imagen.
+     * Constante del boton de cargar imagen.
      */
     private final static String CARGAR = "Cargar";
 
@@ -30,7 +30,7 @@ public class PanelCargarImagen extends JPanel implements ActionListener {
     // -----------------------------------------------------------------
 
     /**
-     * Botón para cargar la imagen.
+     * Boton para cargar la imagen.
      */
     private JButton btnCargar;
 
@@ -80,7 +80,7 @@ public class PanelCargarImagen extends JPanel implements ActionListener {
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Metodos
     // -----------------------------------------------------------------
 
     /**
@@ -99,7 +99,7 @@ public class PanelCargarImagen extends JPanel implements ActionListener {
 
     /**
      * Actualiza la ruta de la imagen en el campo de texto.
-     * @param nombreImagen Nombre de la imagén añadida
+     * @param nombreImagen Nombre de la imagén añadide
      */
     public void actualizarRuta( String nombreImagen ) {
         lblNombre.setText(nombreImagen);

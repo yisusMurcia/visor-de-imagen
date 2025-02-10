@@ -53,7 +53,7 @@ public class PanelBotones extends JPanel implements ActionListener
     public final static String ROTAR = "Rotar";
 
     /**
-     * Extensi�n 2.
+     * Restaurar imagen
      */
     public final static String RESTAURAR = "Restaurar imagen";
 
@@ -122,7 +122,7 @@ public class PanelBotones extends JPanel implements ActionListener
         // Guarda la referencia al padre
         principal = pPrincipal;
 
-        // Establece el distribuidor gr�fico
+        // Establece el distribuidor grafico
         setLayout(new GridLayout(2, 4));
         setBorder(new TitledBorder("Opciones"));
 
@@ -200,7 +200,15 @@ public class PanelBotones extends JPanel implements ActionListener
             PanelDeAlertas.mostrarAlerta("No se pudo guardar la imagen", JOptionPane.ERROR_MESSAGE);
         }
     }
-    // Método para crear botones con imagen redimensionada
+
+    /**
+     * Metodo para crear botones con imagen redimensionada
+     * @param texto Texto del boton
+     * @param rutaimagen Ruta de la imagen
+     * @param ancho Ancho de la imagen
+     * @param alto Alto de la imagen
+     * @return Boton con imagen redimensionada
+     */
     public static JButton crearBotonConImagen(String texto, String rutaimagen, int ancho, int alto) {
         // Cargar imagen original
         ImageIcon iconoOriginal = new ImageIcon(rutaimagen);

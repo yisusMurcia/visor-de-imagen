@@ -1,6 +1,6 @@
 /**
- *Visor de imáganes
- @author: Jesús Antonio Murcia - Luis Fernando Lopez
+ *Visor de imaganes
+ @author: Jesus Antonio Murcia - Luis Fernando Lopez
   *Fecha: 1/29/2025
  */
 package interfaz;
@@ -10,7 +10,7 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * Diálogo para pedir la matriz de convolución.
+ * Dialogo para pedir la matriz de convolucion.
  */
 @SuppressWarnings("serial")
 public class DialogoMatrizConvolucion extends JDialog
@@ -38,18 +38,18 @@ public class DialogoMatrizConvolucion extends JDialog
     // -----------------------------------------------------------------
 
     /**
-     * Crea el diálogo para los valores de la matriz de convolución.
-     * @param pPrincipal Ventana de la interfaz de la cual hace parte este diálogo. pPrincipal != null.
+     * Crea el dialogo para los valores de la matriz de convolucion.
+     * @param pPrincipal Ventana de la interfaz de la cual hace parte este dialogo. pPrincipal != null.
      */
     public DialogoMatrizConvolucion( InterfazVisorImagen pPrincipal )
     {
         principal = pPrincipal;
 
-        setTitle( "Matriz de Convolución" );
+        setTitle( "Matriz de Convolucion" );
         setSize( 280, 125 );
         setDefaultCloseOperation( JDialog.DISPOSE_ON_CLOSE );
 
-        // Establece el distribuidor gráfico
+        // Establece el distribuidor grafico
         setLayout( new BorderLayout( ) );
 
         // Crea y adiciona el panel de la imagen
@@ -66,7 +66,7 @@ public class DialogoMatrizConvolucion extends JDialog
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Metodos
     // -----------------------------------------------------------------
 
     /**

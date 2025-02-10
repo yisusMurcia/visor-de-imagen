@@ -1,13 +1,4 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n 
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n6_visorImagen
- * Autor: Equipo Cupi2 2017
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
+
 package interfaz;
 
 import java.awt.*;
@@ -15,7 +6,7 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * Panel donde se entran los datos de la matriz de convoluci�n.
+ * Panel donde se entran los datos de la matriz de convolucion.
  */
 @SuppressWarnings("serial")
 public class PanelMatriz extends JPanel
@@ -25,7 +16,7 @@ public class PanelMatriz extends JPanel
     // -----------------------------------------------------------------
 
     /**
-     * Campos donde se indican los valores de la matriz de convoluci�n.
+     * Campos donde se indican los valores de la matriz de convolucion.
      */
     private JTextField factores[][];
 
@@ -34,7 +25,7 @@ public class PanelMatriz extends JPanel
     // -----------------------------------------------------------------
 
     /**
-     * Crea el panel para recibir los datos de la matriz de convoluci�n.
+     * Crea el panel para recibir los datos de la matriz de convolucion.
      */
     public PanelMatriz( )
     {
@@ -55,7 +46,7 @@ public class PanelMatriz extends JPanel
     }
 
     // -----------------------------------------------------------------
-    // M�todos
+    // Metodos
     // -----------------------------------------------------------------
 
     /**
@@ -69,8 +60,8 @@ public class PanelMatriz extends JPanel
     }
 
     /**
-     * Retorna la matriz de convoluci�n definida por el usuario.
-     * @return La matriz de convoluci�n.
+     * Retorna la matriz de convolucion definida por el usuario.
+     * @return La matriz de convolucion.
      */
     public double[][] darMatriz( )
     {
@@ -86,7 +77,7 @@ public class PanelMatriz extends JPanel
                 }
                 catch( Exception e )
                 {
-                    JOptionPane.showMessageDialog( this, "Factor inv�lido: " + factores[ i ][ j ].getText( ), "Matriz de Convoluci�n", JOptionPane.ERROR_MESSAGE );
+                    JOptionPane.showMessageDialog( this, "Factor invilido: " + factores[ i ][ j ].getText( ), "Matriz de Convoluci�n", JOptionPane.ERROR_MESSAGE );
                     factores[ i ][ j ].setText( "0" );
                     error = true;
                     matriz = null;
