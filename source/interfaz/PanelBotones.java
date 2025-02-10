@@ -1,14 +1,6 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n 
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n6_visorImagen
- * Autor: Equipo Cupi2 2017
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
 package interfaz;
+
+import mundo.GuardarImagen;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -19,7 +11,6 @@ import javax.swing.border.TitledBorder;
 /**
  * Panel de los botones.
  */
-@SuppressWarnings("serial")
 public class PanelBotones extends JPanel implements ActionListener
 {
     // -----------------------------------------------------------------
@@ -64,7 +55,7 @@ public class PanelBotones extends JPanel implements ActionListener
     /**
      * Extensi�n 2.
      */
-    public final static String OPCION_2 = "Opcion 2";
+    public final static String RESTAURAR = "Restaurar imagen";
 
     // -----------------------------------------------------------------
     // Elementos de la Interfaz
@@ -101,16 +92,14 @@ public class PanelBotones extends JPanel implements ActionListener
     private JButton butConvolucion = crearBotonConImagen("Convolucion", "./iconos/convolucion.png", 40, 40);
 
     /**
-     * Botón extensión 1.
+     * Botón rotar imagen.
      */
     private JButton btnRotar = crearBotonConImagen("Rotar", "./iconos/rotar.png", 40, 40);
 
     /**
-     * Botón extensión 2.
+     * Botón restaurar imagen.
      */
-    private JButton butExtension2 = crearBotonConImagen("Opcion 2", "./iconos/opcion2.png", 40, 40);
-
-
+    private JButton btnRestore;
 
     // -----------------------------------------------------------------
     // Atributos
@@ -170,10 +159,9 @@ public class PanelBotones extends JPanel implements ActionListener
         btnRotar.setActionCommand(ROTAR);
         btnRotar.addActionListener( this );
 
-
-
-        butExtension2.addActionListener( this );
-
+        btnRestore = new JButton( RESTAURAR );
+        btnRestore.setActionCommand(RESTAURAR);
+        btnRestore.addActionListener( this );
 
         // Adiciona los elementos al panel
         add( butNegativo );
@@ -183,53 +171,33 @@ public class PanelBotones extends JPanel implements ActionListener
         add( butEscalaGrises );
         add( butConvolucion );
         add(btnRotar);
-        add( butExtension2 );
-
-        setVisible(true);
+        add( btnRestore );
     }
 
     // -----------------------------------------------------------------
-    // M�todos
+    // Métodos
     // -----------------------------------------------------------------
 
     /**
      * Ejecuta las acciones de los elementos de la interfaz.
-     * @param pEvento Evento de la accion. pEvento != null.
+     * @param pEvento Evento de la acción. pEvento != null.
+     * guarda la imagen en un archivo.
      */
     public void actionPerformed( ActionEvent pEvento )
     {
         String comando = pEvento.getActionCommand( );
-        if( comando.equals( NEGATIVO ) )
-        {
-            principal.convertirNegativo( );
+        switch (comando) {
+            case NEGATIVO -> principal.convertirNegativo();
+            case REFLEJAR -> principal.reflejarImagen();
+            case BINARIZAR -> principal.presentarDialogoUmbral();
+            case PIXELAR -> principal.pixelarImagen();
+            case ESCALA_GRISES -> principal.convertirAGrises();
+            case CONVOLUCION -> principal.presentarDialogoMatrizConvolucion();
+            case ROTAR -> principal.rotar();
+            case RESTAURAR -> principal.restaurar();
         }
-        else if( comando.equals( REFLEJAR ) )
-        {
-            principal.reflejarImagen( );
-        }
-        else if( comando.equals( BINARIZAR ) )
-        {
-            principal.presentarDialogoUmbral( );
-        }
-        else if( comando.equals( PIXELAR ) )
-        {
-            principal.pixelarImagen( );
-        }
-        else if( comando.equals( ESCALA_GRISES ) )
-        {
-            principal.convertirAGrises( );
-        }
-        else if( comando.equals( CONVOLUCION ) )
-        {
-            principal.presentarDialogoMatrizConvolucion( );
-        }
-        else if( comando.equals(ROTAR) )
-        {
-            principal.rotar();
-        }
-        else if( comando.equals( OPCION_2 ) )
-        {
-            principal.reqFuncOpcion2( );
+        if(!GuardarImagen.guardarImagen(principal.getBufferedImage(), "imagenEditada")){
+            PanelDeAlertas.mostrarAlerta("No se pudo guardar la imagen", JOptionPane.ERROR_MESSAGE);
         }
     }
     // Método para crear botones con imagen redimensionada

@@ -28,7 +28,7 @@ public class PanelBanner extends JPanel
     /**
      * Ruta de la imagen del banner.
      */
-    public final static String RUTA_IMAGEN = "./data/banner4.png";
+    public final static String RUTA_IMAGEN = "./data/banner.png";
 
     // -----------------------------------------------------------------
     // Atributos de la interfaz

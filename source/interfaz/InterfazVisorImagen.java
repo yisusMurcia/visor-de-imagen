@@ -6,9 +6,12 @@
 
 package interfaz;
 
+import mundo.GuardarImagen;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.swing.JFileChooser;
@@ -28,20 +31,11 @@ public class InterfazVisorImagen extends JFrame
     public static final int DIMENSION_CONVOLUCION = 3;
 
     /**
-     * Panel del banner de la aplicacion.
-     */
-    private PanelBanner panelBanner;
-
-    /**
      * Panel de la imagen.
      */
-    private PanelImagen panelImagen;
+    private final PanelImagen panelImagen;
 
-    /**
-     * Panel de los botones.
-     */
-    private PanelBotones panelBotones;
-    private PanelCargarImagen panelCargarImagen;
+    private final PanelCargarImagen panelCargarImagen;
 
     /**
      * Crea la interfaz para el visor de imagenes.
@@ -56,7 +50,8 @@ public class InterfazVisorImagen extends JFrame
         setLayout( new BorderLayout( ) );
 
         // Crea y adiciona el panel del banner
-        panelBanner = new PanelBanner( );
+
+        PanelBanner panelBanner = new PanelBanner();
         add(panelBanner, BorderLayout.NORTH );
 
         // Crea y adiciona el panel de la imagen
@@ -71,13 +66,19 @@ public class InterfazVisorImagen extends JFrame
         panel.add( panelCargarImagen );
 
         // Crea y adiciona el panel de botones
-        panelBotones = new PanelBotones( this );
-        panel.add( panelBotones );
+
+        PanelBotones panelBotones = new PanelBotones(this);
+        panel.add(panelBotones);
 
         add( panel, BorderLayout.SOUTH );
 
         setLocationRelativeTo( null );
         setResizable( false );
+    }
+
+    public BufferedImage getBufferedImage(){
+
+        return panelImagen.getImagenPintar();
     }
 
     /**
@@ -91,6 +92,7 @@ public class InterfazVisorImagen extends JFrame
         {
             File file = fc.getSelectedFile( );
             panelImagen.actualizarImagen( file.getAbsolutePath( ) );
+            GuardarImagen.guardarImagen(panelImagen.getImagenPintar(), "imagenOriginal");
             panelCargarImagen.actualizarRuta( file.getName());
 
         }else{
@@ -144,8 +146,7 @@ public class InterfazVisorImagen extends JFrame
     /**
      * Pixela la imagen.
      */
-    public void pixelarImagen( )
-    {
+    public void pixelarImagen( ) {
         panelImagen.pixelarImagen( );
     }
 
@@ -170,17 +171,12 @@ public class InterfazVisorImagen extends JFrame
      * Aplica el operador de convolución representado en la matriz.
      * @param pConv Matriz de convolución.
      */
-    public void aplicarOperadorConvolucion( double pConv[][] )
+    public void aplicarOperadorConvolucion(double[][] pConv)
     {
         panelImagen.aplicarOperadorConvolucion( pConv );
     }
-
-    // -----------------------------------------------------------------
-    // Puntos de Extensión
-    // -----------------------------------------------------------------
-
     /**
-     * Extensión 1.
+     * Rotar la imagen.
      */
     public void rotar( )
     {
@@ -188,10 +184,10 @@ public class InterfazVisorImagen extends JFrame
     }
 
     /**
-     * Extensión 2.
+     * Reastaura la imagen.
      */
-    public void reqFuncOpcion2( )
+    public void restaurar( )
     {
-        panelImagen.extension2( );
+        panelImagen.restaurarImagen( );
     }
 }

@@ -1,13 +1,4 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n 
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n6_visorImagen
- * Autor: Equipo Cupi2 2017
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
+
 package mundo;
 
 import java.awt.*;
@@ -63,8 +54,20 @@ public class Imagen
     }
 
     // -----------------------------------------------------------------
-    // M�todos
+    // Métodos
     // -----------------------------------------------------------------
+
+    /**
+     * Retorna la ruta de la imagen.
+     * @return Ruta de la imagen.
+     */
+    public String getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
+    }
 
     /**
      * Retorna el color de un pixel seg�n su ubicaci�n en la imagen.
@@ -74,13 +77,10 @@ public class Imagen
      */
     public Color darColorPixel( int pX, int pY )
     {
-        Color color = null;
-        if( pX >= ancho || pY >= alto )
-        {
+        Color color;
+        if( pX >= ancho || pY >= alto ) {
             color = null;
-        }
-        else
-        {
+        }else{
             color = new Color(bitmap[ pY ][ pX ]);
         }
         return color;
@@ -269,7 +269,7 @@ public class Imagen
         // Obtiene una copia de la imagen original, pero con un marco
         // de píxeles negros para operar fácilmente las esquinas de la imagen
         // con la matriz de convoluci�n
-        Color copiaBorde[][] = copiarConBorde( pDimension / 2 );
+        Color[][] copiaBorde = copiarConBorde( pDimension / 2 );
 
         // Calcula la suma de los factores de convolución
         double sumaConvolucion = 0;
@@ -291,7 +291,7 @@ public class Imagen
                 double sumaGreen = 0;
                 double sumaBlue = 0;
 
-                // La divisi�n se hace en la mayor�a de los casos (excepto en los bordes)
+                // La división se hace en la mayor�a de los casos (excepto en los bordes)
                 // Restando sobre la suma de los factores de convoluci�n
                 double divisor = sumaConvolucion;
 
@@ -304,7 +304,7 @@ public class Imagen
                         sumaGreen += pConvolucion[ k + pDimension / 2 ][ l + pDimension / 2 ] * copiaBorde[ i + k + pDimension / 2 ][ j + l + pDimension / 2 ].getGreen( );
                         sumaBlue += pConvolucion[ k + pDimension / 2 ][ l + pDimension / 2 ] * copiaBorde[ i + k + pDimension / 2 ][ j + l + pDimension / 2 ].getBlue( );
 
-                        // Si es un p�xel del borde no cuenta para el divisor
+                        // Si es un píxel del borde no cuenta para el divisor
                         if( i + l < 0 || i + l > alto || j + k < 0 || j + k > ancho )
                         {
                             divisor -= pConvolucion[ k + pDimension / 2 ][ l + pDimension / 2 ];
@@ -525,27 +525,5 @@ public class Imagen
         int altoTemp = alto;
         alto = ancho;
         ancho = altoTemp;
-    }
-
-    // -----------------------------------------------------------------
-    // Puntos de extensión
-    // -----------------------------------------------------------------
-
-    /**
-     * M�todo de extensi�n 1.
-     * @return Respuesta 1.
-     */
-    public String metodo1( )
-    {
-        return "Respuesta 1";
-    }
-
-    /**
-     * M�todo de extensi�n 2.
-     * @return Respuesta 2.
-     */
-    public String metodo2( )
-    {
-        return "Respuesta 2";
     }
 }
