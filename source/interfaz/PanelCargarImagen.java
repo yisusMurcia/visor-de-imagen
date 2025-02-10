@@ -85,7 +85,7 @@ public class PanelCargarImagen extends JPanel implements ActionListener {
 
     /**
      * Ejecuta las acciones de los elementos de la interfaz
-     * @param pEvento Evento de la acci�n. pEvento != null.
+     * @param pEvento Evento de la accion. pEvento != null.
      */
     public void actionPerformed( ActionEvent pEvento )
     {

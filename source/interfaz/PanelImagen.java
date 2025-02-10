@@ -45,7 +45,7 @@ public class PanelImagen extends JPanel{
             int respuesta = 0;
             String ruta = "data/imagen.bmp";
             if(img.exists()){
-                respuesta = JOptionPane.showConfirmDialog(this, "¿Desea abrir la última imagen guardada?", "Abrir última imagen", JOptionPane.YES_NO_OPTION);
+                respuesta = JOptionPane.showConfirmDialog(this, "Desea abrir la ultima imagen guardada?", "Abrir última imagen", JOptionPane.YES_NO_OPTION);
                 if(respuesta == JOptionPane.YES_OPTION){
                     ruta = "imagenOriginal.png";
                 }
@@ -120,7 +120,7 @@ public class PanelImagen extends JPanel{
 
     /**
      * Procesa la imagen con el m�todo que permite hacer una binarizaci�n.
-     * @param pUmbral Umbral de modificaci�n.
+     * @param pUmbral Umbral de modificacion.
      */
     public void binarizarImagen( double pUmbral )
     {
