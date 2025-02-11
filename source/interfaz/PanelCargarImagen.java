@@ -61,10 +61,9 @@ public class PanelCargarImagen extends JPanel implements ActionListener {
         // Guarda la referencia al padre
         principal = pPrincipal;
 
-        // Establece el distribuidor gr�fico
+        // Establece el distribuidor gráfico
         setLayout( new BorderLayout( ) );
         setBorder( new TitledBorder( "Cargar Imagen" ) );
-        setPreferredSize( new Dimension( 1024, 20 ) );
 
         // Crea e inicializa los elementos de la interfaz
 

@@ -1,13 +1,3 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad de los Andes (Bogot� - Colombia)
- * Departamento de Ingenier�a de Sistemas y Computaci�n 
- * Licenciado bajo el esquema Academic Free License version 2.1 
- *
- * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n6_visorImagen
- * Autor: Equipo Cupi2 2017
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
- */
 package uniandes.cupi2.visorImagen.test;
 
 import java.awt.*;
@@ -36,7 +26,7 @@ public class ImagenTest{
     private int alto;
 
     /**
-     * ancho de la imagen de prueba
+     * Ancho de la imagen de prueba
      */
     private int ancho;
 
@@ -63,7 +53,7 @@ public class ImagenTest{
     }
 
     /**
-     * Prepara un escenario con una imagen negra del ancho y el alto limite La imagen debe tener tales dimensiones.
+     * Prepara un escenario con una imagen negra del ancho y el alto límite La imagen debe tener tales dimensiones.
      */
     private void setupEscenario2( )
     {
@@ -81,7 +71,7 @@ public class ImagenTest{
     }
 
     /**
-     * Prepara un escenario con una imagen azul del ancho y el alto mayores a los limites. La imagen es de 1000 x 900
+     * Prepara un escenario con una imagen azul del ancho y el alto mayores a los límites. La imagen es de 1000 x 900
      */
     private void setupEscenario3( )
     {
@@ -99,7 +89,7 @@ public class ImagenTest{
     }
 
     /**
-     * Prueba la carga de una imagen menor al m�ximo
+     * Prueba la carga de una imagen menor al máximo
      */
     @Test
     public void testCargaImagenPequenia( )
@@ -114,7 +104,7 @@ public class ImagenTest{
     }
 
     /**
-     * Prueba la carga de una imagen con los limites exactos
+     * Prueba la carga de una imagen con los límites exactos
      */
     @Test
     public void testCargaImagenExacta( )
@@ -154,7 +144,7 @@ public class ImagenTest{
     {
         // Configura el escenario de prueba
         setupEscenario1( );
-        // Valida que el color promedio sea blanco
+        // Válida que el color promedio sea blanco
         assertEquals( Color.white.getRGB( ), imagen.colorPromedio( ).getRGB( ) );
     }
 

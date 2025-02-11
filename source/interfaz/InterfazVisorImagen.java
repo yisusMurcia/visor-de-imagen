@@ -51,6 +51,7 @@ public class InterfazVisorImagen extends JFrame
 
         // Establece el distribuidor grafico
         setLayout( new BorderLayout( ) );
+        setLocationRelativeTo(null);
 
         // Crea y adiciona el panel del banner
 
@@ -73,10 +74,7 @@ public class InterfazVisorImagen extends JFrame
         PanelBotones panelBotones = new PanelBotones(this);
         panel.add(panelBotones);
 
-        add( panel, BorderLayout.SOUTH );
-
-        setLocationRelativeTo( null );
-        setResizable( false );
+        add( panel, BorderLayout.PAGE_END );
     }
 
     /**

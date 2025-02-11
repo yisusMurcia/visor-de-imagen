@@ -64,42 +64,42 @@ public class PanelBotones extends JPanel implements ActionListener
     /**
      * Botón negativo.
      */
-    private JButton butNegativo = crearBotonConImagen("Negativo", "./iconos/negativo.png", 40, 40);
+    private JButton butNegativo = crearBotonConImagen("Negativo", "./iconos/negativo.png", 20);
 
     /**
      * Botón reflejar.
      */
-    private JButton butReflejar = crearBotonConImagen("Reflejar", "./iconos/reflejar.png", 40, 40);
+    private JButton butReflejar = crearBotonConImagen("Reflejar", "./iconos/reflejar.png", 20);
 
     /**
      * Botón binarizar.
      */
-    private JButton butBinarizar = crearBotonConImagen("Binarizar", "./iconos/binarizar.png", 40, 40);
+    private JButton butBinarizar = crearBotonConImagen("Binarizar", "./iconos/binarizar.png", 20);
 
     /**
      * Botón pixelar.
      */
-    private JButton butPixelar = crearBotonConImagen("Pixelar", "./iconos/pixelar.png", 40, 40);
+    private JButton butPixelar = crearBotonConImagen("Pixelar", "./iconos/pixelar.png", 20);
 
     /**
      * Botón escala de grises.
      */
-    private JButton butEscalaGrises = crearBotonConImagen("Escala de grises", "./iconos/grises.png", 40, 40);
+    private JButton butEscalaGrises = crearBotonConImagen("Escala de grises", "./iconos/grises.png", 20);
 
     /**
      * Botón operador de convolución.
      */
-    private JButton butConvolucion = crearBotonConImagen("Convolucion", "./iconos/convolucion.png", 40, 40);
+    private JButton butConvolucion = crearBotonConImagen("Convolucion", "./iconos/convolucion.png", 20);
 
     /**
      * Botón rotar imagen.
      */
-    private JButton btnRotar = crearBotonConImagen("Rotar", "./iconos/rotar.png", 40, 40);
+    private JButton btnRotar = crearBotonConImagen("Rotar", "./iconos/rotar.png", 20);
 
     /**
      * Botón restaurar imagen.
      */
-    private JButton btnRestore = crearBotonConImagen("Restaurar", "./iconos/restaurar.png", 40, 40);
+    private JButton btnRestore = crearBotonConImagen("Restaurar", "./iconos/restaurar.png", 20);
 
     // -----------------------------------------------------------------
     // Atributos
@@ -205,15 +205,14 @@ public class PanelBotones extends JPanel implements ActionListener
      * Metodo para crear botones con imagen redimensionada
      * @param texto Texto del boton
      * @param rutaimagen Ruta de la imagen
-     * @param ancho Ancho de la imagen
-     * @param alto Alto de la imagen
+     * @param lado Tamaño de la imagen
      * @return Boton con imagen redimensionada
      */
-    public static JButton crearBotonConImagen(String texto, String rutaimagen, int ancho, int alto) {
+    public static JButton crearBotonConImagen(String texto, String rutaimagen, int lado) {
         // Cargar imagen original
         ImageIcon iconoOriginal = new ImageIcon(rutaimagen);
         // Redimensionar la imagen
-        Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
+        Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(lado, lado, Image.SCALE_SMOOTH);
         ImageIcon iconoRedimensionado = new ImageIcon(imagenEscalada);
         // Crear botón con imagen y texto
         JButton boton = new JButton(texto, iconoRedimensionado);

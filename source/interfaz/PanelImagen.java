@@ -224,12 +224,11 @@ public class PanelImagen extends JPanel{
      */
     public void establecerDimension( ){
         imagenPintar = imagen.darImagenBuffer();
-        if(imagenPintar.getHeight() > getHeight()){
-            setPreferredSize( new Dimension( getHeight(), imagenPintar.getHeight()/ imagenPintar.getWidth() * getHeight() ) );
-        }else if(imagen.darAncho() > getWidth()){
-            setPreferredSize( new Dimension( imagenPintar.getWidth()/ imagenPintar.getHeight() * getWidth(), getWidth() ) );
-        }else{
-            setPreferredSize( new Dimension( imagenPintar.getWidth(), imagenPintar.getHeight() ) );
-        }
+
+        int nuevoAncho = (int) (Math.abs(imagenPintar.getHeight()) * Math.cos(Math.toRadians(90))) + (int) Math.abs(imagenPintar.getWidth() * Math.sin(Math.toRadians(90)));
+        int nuevoAlto = (int) (Math.abs(imagenPintar.getHeight()) * Math.sin(Math.toRadians(90))) + (int) Math.abs(imagenPintar.getWidth() * Math.cos(Math.toRadians(90)));
+
+
+        setPreferredSize( new Dimension( nuevoAncho, nuevoAlto ) );
     }
 }

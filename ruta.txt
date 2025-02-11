@@ -1,1 +1,1 @@
-C:\Users\user\OneDrive\Documentos\GitHub\Repository\visor-de-imagen\data\imagen.bmp
+data/imagen.bmp

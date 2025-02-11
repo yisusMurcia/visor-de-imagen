@@ -100,7 +100,7 @@ public class Imagen
     }
 
     /**
-     * Retorna el ancho en pixeles de la imagen.
+     * Retorna el ancho en píxeles de la imagen.
      * @return El ancho de la imagen.
      */
     public int darAncho( )
@@ -299,7 +299,7 @@ public class Imagen
                 // Restando sobre la suma de los factores de convoluci�n
                 double divisor = sumaConvolucion;
 
-                // La suma se hace con los p�xeles de la imagen original
+                // La suma se hace con los píxeles de la imagen original
                 for( int k = -pDimension / 2; k <= pDimension / 2; k++ )
                 {
                     for( int l = -pDimension / 2; l <= pDimension / 2; l++ )
@@ -349,7 +349,7 @@ public class Imagen
                         sumaBlue = 0;
                     }
 
-                    // Cambia el p�xel en la imagen
+                    // Cambia el píxel en la imagen
                     bitmap[ i ][ j ] = new Color( ( int )sumaRed, ( int )sumaGreen, ( int )sumaBlue ).getRGB();
                 }
                 else
@@ -398,7 +398,7 @@ public class Imagen
     }
 
     /**
-     * Busca el color promedio de la regi�n de la imagen El color promedio es formado por los promedios de rojos, verdes y azules de cada pixel.
+     * Busca el color promedio de la region de la imagen El color promedio es formado por los promedios de rojos, verdes y azules de cada pixel.
      * @param pXInicial Coordenada x del pixel de inicio.
      * @param pYInicial Coordenada y del pixel de inicio.
      * @param pXFinal Coordenada x del pixel final.
@@ -429,9 +429,9 @@ public class Imagen
     }
 
     /**
-     * Calcula el menor divisor del n�mero dado que sea mayor a 1.
-     * @param pNumero Al que se le buscar� el divisor.
-     * @return Divisor mayor a uno del n�mero.
+     * Calcula el menor divisor del número dado que sea mayor a 1.
+     * @param pNumero Al que se le buscara el divisor.
+     * @return Divisor mayor a uno del numero.
      */
     private int menorDivisorMayorAUno( int pNumero )
     {
@@ -486,7 +486,7 @@ public class Imagen
      */
     private Color[][] copiarConBorde( int pBorde )
     {
-        // Crea una copia de la imagen original que incluye un marco de p�xeles negros
+        // Crea una copia de la imagen original que incluye un marco de píxeles negros
         Color[][] copia = new Color[alto + 2 * pBorde][ancho + 2 * pBorde];
 
         // Recorre la imagen pero incluye el borde
@@ -494,7 +494,7 @@ public class Imagen
         {
             for( int j = 0; j < ancho + pBorde * 2; j++ )
             {
-                // Si el p�xel es del borde, es de color negro
+                // Si el píxel es del borde, es de color negro
                 if( i < pBorde || i >= alto + pBorde || j < pBorde || j >= ancho + pBorde )
                 {
                     copia[ i ][ j ] = Color.BLACK;

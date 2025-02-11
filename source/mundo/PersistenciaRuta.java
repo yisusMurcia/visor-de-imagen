@@ -30,6 +30,7 @@ public class PersistenciaRuta {
 
     /**
      * Carga la ruta guardada en el archivo.
+     * @return Ruta guardada en el archivo.
      */
     public static String cargarRuta() {
 
