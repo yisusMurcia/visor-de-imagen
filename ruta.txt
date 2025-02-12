@@ -1,1 +1,1 @@
-data/imagen.bmp
+C:\Users\user\OneDrive\Documentos\GitHub\Repository\visor-de-imagen\data\amanecerconflores.jpg
