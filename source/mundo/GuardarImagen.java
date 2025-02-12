@@ -18,6 +18,9 @@ public class GuardarImagen {
     public static boolean guardarImagen(BufferedImage imagen, String nombre) {
         try {
             File archivo = new File(nombre + ".png");
+            if(!archivo.exists()){
+                archivo.createNewFile();
+            }
             ImageIO.write(imagen, "png", archivo);
         } catch (IOException | IllegalArgumentException e) {
             return false;

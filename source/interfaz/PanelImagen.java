@@ -226,7 +226,7 @@ public class PanelImagen extends JPanel{
      * Restaura la imagen original
      */
     public void restaurarImagen( ){
-        actualizarImagen(imagen.getRuta());
+        actualizarImagen("imagenOriginal.png");
     }
 
     /**
