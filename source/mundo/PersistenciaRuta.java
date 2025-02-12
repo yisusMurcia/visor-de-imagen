@@ -14,10 +14,9 @@ public class PersistenciaRuta {
      * @param ruta Ruta que se va a guardar. ruta != null.
      */
     public static void guardarRuta(String ruta) {
-
         try {
             File archivo = new File("ruta.txt");
-            if(!archivo.exists()){
+            if (!archivo.exists()) {
                 archivo.createNewFile();
             }
             FileWriter escritor = new FileWriter(archivo);
@@ -33,7 +32,6 @@ public class PersistenciaRuta {
      * @return Ruta guardada en el archivo.
      */
     public static String cargarRuta() {
-
         String ruta = null;
         try {
             File archivo = new File("ruta.txt");
