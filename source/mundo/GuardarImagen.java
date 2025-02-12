@@ -22,7 +22,6 @@ public class GuardarImagen {
         } catch (IOException | IllegalArgumentException e) {
             return false;
         }
-
         return true;
     }
 }

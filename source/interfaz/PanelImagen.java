@@ -169,17 +169,27 @@ public class PanelImagen extends JPanel{
         }
     }
 
-    /**
-     * Pinta la imagen.
-     * @param pGraphics Graficas del panel.
-     */
-    public void paint( Graphics pGraphics )
-    {
-        super.paint( pGraphics );
-        if( imagen != null )
-        {
-            imagenPintar = imagen.darImagenBuffer( );
-            pGraphics.drawImage( imagenPintar, 0, 0, null, null );
+    @Override
+    protected void paintComponent(Graphics pGraphics) {
+        super.paintComponent(pGraphics);
+        if (imagen != null) {
+            imagenPintar = imagen.darImagenBuffer();
+            int panelWidth = getWidth();
+            int panelHeight = getHeight();
+            int imageWidth = imagenPintar.getWidth();
+            int imageHeight = imagenPintar.getHeight();
+            double aspectRatio = (double) imageWidth / imageHeight;
+            int drawWidth, drawHeight;
+            if (panelWidth / aspectRatio <= panelHeight) {
+                drawWidth = panelWidth;
+                drawHeight = (int) (panelWidth / aspectRatio);
+            } else {
+                drawHeight = panelHeight;
+                drawWidth = (int) (panelHeight * aspectRatio);
+            }
+            int x = (panelWidth - drawWidth) / 2;
+            int y = (panelHeight - drawHeight) / 2;
+            pGraphics.drawImage(imagenPintar, x, y, drawWidth, drawHeight, null);
         }
     }
 
@@ -222,13 +232,23 @@ public class PanelImagen extends JPanel{
     /**
      * Calcular la dimensión para que la imagen se ajuste al panel.
      */
-    public void establecerDimension( ){
+    private void establecerDimension() {
         imagenPintar = imagen.darImagenBuffer();
-
-        int nuevoAncho = (int) (Math.abs(imagenPintar.getHeight()) * Math.cos(Math.toRadians(90))) + (int) Math.abs(imagenPintar.getWidth() * Math.sin(Math.toRadians(90)));
-        int nuevoAlto = (int) (Math.abs(imagenPintar.getHeight()) * Math.sin(Math.toRadians(90))) + (int) Math.abs(imagenPintar.getWidth() * Math.cos(Math.toRadians(90)));
-
-
-        setPreferredSize( new Dimension( nuevoAncho, nuevoAlto ) );
+        Dimension panelSize = getSize();
+        int panelWidth = panelSize.width;
+        int panelHeight = panelSize.height;
+        int imageWidth = imagenPintar.getWidth();
+        int imageHeight = imagenPintar.getHeight();
+        double aspectRatio = (double) imageWidth / imageHeight;
+        int newWidth, newHeight;
+        if (panelWidth / aspectRatio <= panelHeight) {
+            newWidth = panelWidth;
+            newHeight = (int) (panelWidth / aspectRatio);
+        } else {
+            newHeight = panelHeight;
+            newWidth = (int) (panelHeight * aspectRatio);
+        }
+        setPreferredSize(new Dimension(newWidth, newHeight));
+        revalidate();
     }
 }
