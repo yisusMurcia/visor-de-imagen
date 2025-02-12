@@ -76,7 +76,7 @@ public class InterfazVisorImagen extends JFrame
         add( panel, BorderLayout.SOUTH );
 
         setLocationRelativeTo( null );
-        setResizable( false );
+
     }
 
     /**
